@@ -1,0 +1,506 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2490623079223900956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2490623079223900930}
+  - component: {fileID: 2490623079223900957}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2490623079223900930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490623079223900956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 466.43674, y: 808.12933, z: -15.041058}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2490623079223900957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490623079223900956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e9902908c7248479ce132ebf9b8286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundInfos:
+  - id: StartScreenBGM
+    audioClip: {fileID: 8300000, guid: 4fc11bac8591a5e4a83cedcce33192cc, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: WelcomeScreenBGM
+    audioClip: {fileID: 8300000, guid: 6c93ff4f14d958342b6a7a3c3d642536, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: GameScreenBGM
+    audioClip: {fileID: 8300000, guid: f93c738e5a18538478e8c40c4cba4a0c, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: ChallengeLevelBGM
+    audioClip: {fileID: 8300000, guid: c36c4ffa15c30c644b079b4c3caf97b1, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: MiniGameBGM
+    audioClip: {fileID: 8300000, guid: c36c4ffa15c30c644b079b4c3caf97b1, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: LevelWinBGM
+    audioClip: {fileID: 8300000, guid: 4fc11bac8591a5e4a83cedcce33192cc, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: LevelLoseBGM
+    audioClip: {fileID: 8300000, guid: f93c738e5a18538478e8c40c4cba4a0c, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: OutOfMovesBGM
+    audioClip: {fileID: 8300000, guid: 4fc11bac8591a5e4a83cedcce33192cc, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: GiftScreenBGM
+    audioClip: {fileID: 8300000, guid: 23dcb198f74148e4c83ab517a99fd18e, type: 3}
+    type: 1
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: btn-click
+    audioClip: {fileID: 8300000, guid: 9626df3bef0b04dca90b8317e734bbca, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LineDrawSound
+    audioClip: {fileID: 8300000, guid: 1ff97e80950bd4f40981ecdc727ab733, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: PopupAppear
+    audioClip: {fileID: 8300000, guid: 747c540c354cbd54d8f6823227904af8, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: PopupDissappear
+    audioClip: {fileID: 8300000, guid: f1d366a6034db4743ad071c5aa5f4b1f, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: PlayButtonPressed
+    audioClip: {fileID: 8300000, guid: 07895c46119f74242aafbf3eb798f6b4, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: FBPlayButtonPressed
+    audioClip: {fileID: 8300000, guid: 07895c46119f74242aafbf3eb798f6b4, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelMessageDissappear
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GridAppears
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: inventory_hints
+    audioClip: {fileID: 8300000, guid: 6b52a24cc6c464f45badaade2d27d00f, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: inventory_undos
+    audioClip: {fileID: 8300000, guid: 7b814e09a45c6c3419e657a539412088, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: inventory_resets
+    audioClip: {fileID: 8300000, guid: ba491fe672ed47e42b8c94086515528d, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: hint_shown
+    audioClip: {fileID: 8300000, guid: ba491fe672ed47e42b8c94086515528d, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: hint_focus
+    audioClip: {fileID: 8300000, guid: 9626df3bef0b04dca90b8317e734bbca, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelTimerFocus
+    audioClip: {fileID: 8300000, guid: 0568a152ead69214f9530d579404a704, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.6
+  - id: LevelTimerLowOnTime
+    audioClip: {fileID: 8300000, guid: 0568a152ead69214f9530d579404a704, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.6
+  - id: LevelCompleteMessage
+    audioClip: {fileID: 8300000, guid: a6c96e71cb7d22e4c9c87e396b39bb0d, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.34
+  - id: LevelCompleteGreyStar
+    audioClip: {fileID: 8300000, guid: 9626df3bef0b04dca90b8317e734bbca, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.5
+  - id: LevelCompleteYellowStar1
+    audioClip: {fileID: 8300000, guid: 87ff80eca681aa74380b2ca0d7faf314, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteYellowStar2
+    audioClip: {fileID: 8300000, guid: 84bd102ec6041c94bad38f1bd86f2d34, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteYellowStar3
+    audioClip: {fileID: 8300000, guid: 4715fa9c686900e48a036c729dfa9ded, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteTrophyAmount
+    audioClip: {fileID: 8300000, guid: 6abca0d8a2a537e49a8a6865788433e2, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteTrophy
+    audioClip: {fileID: 8300000, guid: 6abca0d8a2a537e49a8a6865788433e2, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteLollipopNotAwarded
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteLollipopAwarded
+    audioClip: {fileID: 8300000, guid: 7d14648bc85f73c49ba243e217394197, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.5
+  - id: LevelCompleteNumMovesCompleted
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.5
+  - id: LevelCompleteNiceButtonClicked
+    audioClip: {fileID: 8300000, guid: f30ccee03eff07749821084086a98b01, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteNextButtonClicked
+    audioClip: {fileID: 8300000, guid: 07895c46119f74242aafbf3eb798f6b4, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteHomeButtonClicked
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteLollipopProgress
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteQuestProgress
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelCompleteHomeButtonAppears
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelFailedPopup
+    audioClip: {fileID: 8300000, guid: 8c28e637d6b5d54468791667735a343f, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelFailCloseAfterPurchase
+    audioClip: {fileID: 8300000, guid: 8c28e637d6b5d54468791667735a343f, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelRetryPopup
+    audioClip: {fileID: 8300000, guid: 49252d481c381e6448afea44472ec458, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: PauseScreenResume
+    audioClip: {fileID: 8300000, guid: 07895c46119f74242aafbf3eb798f6b4, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: BlueGift
+    audioClip: {fileID: 8300000, guid: 97ab1cf3bf492ed449f00cae37bef24c, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GreenGift
+    audioClip: {fileID: 8300000, guid: 8af99187b7c0cf047b6c28ecf8a9e328, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: RedGift
+    audioClip: {fileID: 8300000, guid: 7563ee16fd3a6c74a8f087644d2a525f, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: YellowGift
+    audioClip: {fileID: 8300000, guid: af799f2801ff3f5428789caf08e97372, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: PinkGift
+    audioClip: {fileID: 8300000, guid: a4dc7092bcf735148925a0b9132bddc2, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftCoins
+    audioClip: {fileID: 8300000, guid: 6d15c56031f6aab448ced83270335664, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftHints
+    audioClip: {fileID: 8300000, guid: 6b52a24cc6c464f45badaade2d27d00f, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftTrophies
+    audioClip: {fileID: 8300000, guid: 6abca0d8a2a537e49a8a6865788433e2, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftResets
+    audioClip: {fileID: 8300000, guid: ba491fe672ed47e42b8c94086515528d, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftUndos
+    audioClip: {fileID: 8300000, guid: 7b814e09a45c6c3419e657a539412088, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftMoves
+    audioClip: {fileID: 8300000, guid: 1ff97e80950bd4f40981ecdc727ab733, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftClaimed
+    audioClip: {fileID: 8300000, guid: d2d471f6ef246c24db2e9797dfd1a5d5, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftShake
+    audioClip: {fileID: 8300000, guid: 93e7ee3b56586d2498f02c0ee8baa8d5, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GiftLidOpened
+    audioClip: {fileID: 8300000, guid: 93e7ee3b56586d2498f02c0ee8baa8d5, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: RewardCardGoesUp
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: RewardCardShown
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: CoinPurchase
+    audioClip: {fileID: 8300000, guid: 6d15c56031f6aab448ced83270335664, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: CoinPurchaseConfirm
+    audioClip: {fileID: 8300000, guid: 6d15c56031f6aab448ced83270335664, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: CashPurchase
+    audioClip: {fileID: 8300000, guid: 6d15c56031f6aab448ced83270335664, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: CashPurchaseConfirm
+    audioClip: {fileID: 8300000, guid: 6d15c56031f6aab448ced83270335664, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: SubscriptionPopup
+    audioClip: {fileID: 8300000, guid: af799f2801ff3f5428789caf08e97372, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: StartMiniGame
+    audioClip: {fileID: 8300000, guid: 0b06c42814fac344da364e708f5581dc, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: LevelMessageAppear
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: CandySolutionAppearInLine
+    audioClip: {fileID: 8300000, guid: 93cd57c7dc200b540964d52168809a88, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: WrappedCandyAnimation1
+    audioClip: {fileID: 8300000, guid: 00a929e1500ffbb4cb7846b8ff3880a1, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: WrappedCandyAnimation2
+    audioClip: {fileID: 8300000, guid: 93e7ee3b56586d2498f02c0ee8baa8d5, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: CandyMatched
+    audioClip: {fileID: 8300000, guid: 9626df3bef0b04dca90b8317e734bbca, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: ScrollBarUpdate
+    audioClip: {fileID: 8300000, guid: c45ed6a572ddc7945a5a2e815059e450, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.2
+  - id: ScrollBarStop
+    audioClip: {fileID: 8300000, guid: ec637bc91a26344dbbed5647acb9553a, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0
+  - id: DailyRewardCardAppear
+    audioClip: {fileID: 8300000, guid: 1ff97e80950bd4f40981ecdc727ab733, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: DailyRewardCardExit
+    audioClip: {fileID: 8300000, guid: 1ff97e80950bd4f40981ecdc727ab733, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: DailyRewardCardSelected
+    audioClip: {fileID: 8300000, guid: ba491fe672ed47e42b8c94086515528d, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: DailyRewardsClaim
+    audioClip: {fileID: 8300000, guid: 0b06c42814fac344da364e708f5581dc, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: MedalAcheivementAppear
+    audioClip: {fileID: 8300000, guid: a6c96e71cb7d22e4c9c87e396b39bb0d, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.4
+  - id: ChapterAcheivementAppear
+    audioClip: {fileID: 8300000, guid: a6c96e71cb7d22e4c9c87e396b39bb0d, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.4
+  - id: MedalAcheivementUpdate
+    audioClip: {fileID: 8300000, guid: af799f2801ff3f5428789caf08e97372, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.4
+  - id: ChapterAcheivementUpdate
+    audioClip: {fileID: 8300000, guid: af799f2801ff3f5428789caf08e97372, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.4
+  - id: AcheivementClaimButton
+    audioClip: {fileID: 8300000, guid: 0b06c42814fac344da364e708f5581dc, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: AcheivementNiceButton
+    audioClip: {fileID: 8300000, guid: 07895c46119f74242aafbf3eb798f6b4, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: GamePlayStarCrossed
+    audioClip: {fileID: 8300000, guid: f8657c7157bf01e4180e39a1a99e4389, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.5
+  - id: MovesTextRed
+    audioClip: {fileID: 8300000, guid: 7b814e09a45c6c3419e657a539412088, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0
+  - id: MovesTextGreen
+    audioClip: {fileID: 8300000, guid: 7b814e09a45c6c3419e657a539412088, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0
+  - id: QuestSCreenClaim
+    audioClip: {fileID: 8300000, guid: 0b06c42814fac344da364e708f5581dc, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: PauseScreenHome
+    audioClip: {fileID: 8300000, guid: f8657c7157bf01e4180e39a1a99e4389, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.4
+  - id: OutOfMovesAppear
+    audioClip: {fileID: 8300000, guid: 8c28e637d6b5d54468791667735a343f, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: OutOfMovesDissappear
+    audioClip: {fileID: 8300000, guid: 3309e23a9d692a74db1fbe13cb17ee77, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.4
+  - id: OutOfMovesCloseAfterPurchase
+    audioClip: {fileID: 8300000, guid: af799f2801ff3f5428789caf08e97372, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.3
+  - id: TimerZero
+    audioClip: {fileID: 8300000, guid: ec17786a4f7ee1647a79d3973b2b640e, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 0.4

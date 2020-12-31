@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Candy_img
+  - LineSegment
+  - GridCell
+  - Block
+  - Placed
+  - single_timer
+  - Main_Timer
+  - timer
+  - Baseperc
+  - challenge_time
+  - Jelly_Multiplier_2
+  - Jelly_Button_3
+  - Jelly_Multiplier_1
+  - Jelly_Multiplier_3
+  - Jelly_Button_1
+  - Jelly_Button_2
+  - Baseprice
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: GridCell
+    uniqueID: 4224215449
+    locked: 0
