@@ -9,6 +9,7 @@ public class DailyRewardButton : MonoBehaviour
 {
     public GameObject QuestionMark, RewardIcon, RewardAmount;
     public Sprite Hint, Undo, Reset, Coins, Moves;
+    public ParticleSystem trail, blast, border;
 
     private string reward_item;
     private int reward_amount;
@@ -16,6 +17,7 @@ public class DailyRewardButton : MonoBehaviour
     private bool rewards_claimed = false;
     private int index = -1;
     private Dictionary<string, Sprite> ImageDictionary = new Dictionary<string, Sprite>();
+
     private void onEnable()
     {
         HideCard();
@@ -32,6 +34,22 @@ public class DailyRewardButton : MonoBehaviour
         {
             StartCoroutine(ExecuteAfterTime(1));
         }
+    }
+
+
+    public void ShowTrail(bool show)
+    {
+        trail.gameObject.SetActive(show);
+    }
+
+    public void ShowBlast()
+    {
+        blast.Play();
+    }
+
+    public void ShowBorderParticles()
+    {
+        border.Play();
     }
     IEnumerator ExecuteAfterTime(float time)
     {

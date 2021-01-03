@@ -42,8 +42,10 @@ namespace BizzyBeeGames
         [Header("DarkMode Assets")]
         [SerializeField] Image CloseButton;
         [SerializeField] Image TitleHeader;
+        [SerializeField] Image BackgroundCard;
 
         [SerializeField] Image[] MediumCardsBase, SmallerCardsBase;
+
         #endregion
 
         #region Member Variables
@@ -89,7 +91,7 @@ namespace BizzyBeeGames
 
             if (UserDataManager.Instance.IsDarkModeOn())
             {
-                GameConfiguration.Instance.SetDarkModeOnPopups(CloseButton, TitleHeader);
+                GameConfiguration.Instance.SetDarkModeOnPopups(CloseButton, TitleHeader, BackgroundCard);
                 GameConfiguration.Instance.SetDarkModeOnCards(MediumCardsBase, SmallerCardsBase);
             }
             this.callback = callback;

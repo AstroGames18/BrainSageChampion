@@ -16,10 +16,10 @@ namespace BizzyBeeGames
         [Space(5)]
         [Header("Free rewards")]
         public int FirstTimeFreeMoves = 15;
-        public int FirstTimeFreeResets= 15;
-        public int FirstTimeFreeHints= 15;
-        public int FirstTimeFreeUndos= 15;
-        public int FirstTimeFreeCoins= 15;
+        public int FirstTimeFreeResets = 15;
+        public int FirstTimeFreeHints = 15;
+        public int FirstTimeFreeUndos = 15;
+        public int FirstTimeFreeCoins = 15;
         public int LevelFailMovesAdder = 0;
 
         // Moves Offer
@@ -128,6 +128,7 @@ namespace BizzyBeeGames
         public Sprite SmallDarkCard;
         public Sprite CloseDarkButton;
         public Sprite TitleDarkHeader;
+        public Sprite PopupBackgroundDark;
 
         [Header("Debug")]
         [Space(5)]
@@ -225,10 +226,11 @@ namespace BizzyBeeGames
             return (UserDataManager.Instance.GetData("current_level") > NoOfChallenges);
         }
 
-        public void SetDarkModeOnPopups(Image CloseButtonImg, Image TitleHeaderImg)
+        public void SetDarkModeOnPopups(Image CloseButtonImg, Image TitleHeaderImg, Image BackgroundCard)
         {
             if (CloseButtonImg != null) { CloseButtonImg.sprite = CloseDarkButton; }
             if (TitleHeaderImg != null) { TitleHeaderImg.sprite = TitleDarkHeader; }
+            if (BackgroundCard != null) { BackgroundCard.sprite = PopupBackgroundDark; }
         }
         public void SetDarkModeOnCards(Image[] MediumCards, Image[] SmallCards)
         {
@@ -241,7 +243,7 @@ namespace BizzyBeeGames
                         card.sprite = MediumDarkCard;
                     }
                 }
-                
+
                 if (SmallCards != null)
                 {
                     foreach (Image card in SmallCards)

@@ -42,7 +42,7 @@ namespace BizzyBeeGames
             else
             {
                 delay = index * 0.1f;
-            }   
+            }
             StartCoroutine(Utils.ExecuteAfterDelay(delay, (args) =>
             {
                 RectTransform rectT = card.transform as RectTransform;
@@ -54,8 +54,14 @@ namespace BizzyBeeGames
                 }
                 else
                 {
+                    card.GetComponent<DailyRewardButton>().ShowTrail(true);
                     SoundManager.Instance.Play("DailyRewardCardAppear");
                     Utils.DoSwipeVerticalAnimation(rectT, posY - 2000, posY, 0.25f);
+
+                    StartCoroutine(Utils.ExecuteAfterDelay(0.4f, (args1) =>
+                    {
+                        card.GetComponent<DailyRewardButton>().ShowTrail(false);
+                    }));
                 }
                 card.SetActive(true);
             }));
@@ -72,7 +78,7 @@ namespace BizzyBeeGames
             UserDataManager.Instance.SetData("daily_reward_time", NextDailyReward);
             show_timer = true;
             SoundManager.Instance.Play("DailyRewardCardSelected");
-
+            Cards[index].GetComponent<DailyRewardButton>().ShowBorderParticles();
             StartCoroutine(Utils.ExecuteAfterDelay(3f, (args) =>
             {
                 for (int i = 0; i < Cards.Count; i++)
@@ -93,6 +99,10 @@ namespace BizzyBeeGames
                 Utils.DoSwipeVerticalAnimation(rectT, posY, -584f, 0.5f);
                 Utils.DoSwipeHorizontalAnimation(rectT, posX, 540f, 0.5f, 0f);
                 Utils.DoSwipeVerticalAnimation(ClaimButton.transform as RectTransform, -1200f, -650f, 1f);
+                StartCoroutine(Utils.ExecuteAfterDelay(0.6f, (a) =>
+                {
+                    card.GetComponent<DailyRewardButton>().ShowBlast();
+                }));
             }));
         }
         private void ToggleTimer(bool enable)
@@ -122,17 +132,29 @@ namespace BizzyBeeGames
                 allData.Add(new ProbabilityData(config[j].probability, config[j]));
             }
             ProbabilityResult res = Utils.GetRandomNumberInWeights(allData);
-            DailyRewardConfig daily_reward_set = (DailyRewardConfig)res.item;
+            DailyRewardSet = (DailyRewardConfig)res.item;
 
             for (int i = 0; i < Cards.Count; i++)
             {
                 GameObject card = Cards[i];
                 card.SetActive(false);
 
-                int reward_amount = daily_reward_set.reward[i].amount;
-                card.GetComponent<DailyRewardButton>().SetDailyRewardButton(daily_reward_set.reward[i].type, reward_amount, i);
+                SelectableReward reward = GetRandomReward();
+                card.GetComponent<DailyRewardButton>().SetDailyRewardButton(reward.type, reward.amount, i);
                 AnimateCardsAppearance(card, i);
             }
         }
+        DailyRewardConfig DailyRewardSet = null;
+
+        SelectableReward GetRandomReward()
+        {
+            if (DailyRewardSet == null)
+                return null;
+            int i = UnityEngine.Random.Range(0, DailyRewardSet.reward.Count - 1);
+            SelectableReward reward = DailyRewardSet.reward[i];
+            DailyRewardSet.reward.RemoveAt(i);
+            return reward;
+        }
+
     }
 }

@@ -945,8 +945,6 @@ namespace BizzyBeeGames.DotConnect
                     float xPos = c * currentCellSize - totalCellWidth / 2f + currentCellSize / 2f;
                     float yPos = -r * currentCellSize + totalCellHeight / 2f - currentCellSize / 2f;
                     float scale = currentCellSize / Mathf.Max(gridCell.RectT.rect.width, gridCell.RectT.rect.height);
-                    Debug.Log("Scale");
-                    Debug.Log(scale);
 
                     gridCell.transform.localScale = new Vector3(scale, scale, 1f);
                     gridCell.RectT.anchoredPosition = new Vector2(xPos, yPos);

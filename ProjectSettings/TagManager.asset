@@ -21,6 +21,7 @@ TagManager:
   - Jelly_Button_1
   - Jelly_Button_2
   - Baseprice
+  - Sound
   layers:
   - Default
   - TransparentFX
@@ -30,8 +31,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Main Canvas
+  - Popup
   - 
   - 
   - 
@@ -60,4 +61,10 @@ TagManager:
     locked: 0
   - name: GridCell
     uniqueID: 4224215449
+    locked: 0
+  - name: Popup
+    uniqueID: 1990753059
+    locked: 0
+  - name: Particle
+    uniqueID: 3329124119
     locked: 0

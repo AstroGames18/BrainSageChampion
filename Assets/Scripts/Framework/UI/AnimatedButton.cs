@@ -41,14 +41,11 @@ namespace Ricimi
 
         public virtual void OnPointerDown(PointerEventData eventData)
         {
-            Debug.Log("PointerDown");
             if (eventData.button != PointerEventData.InputButton.Left || !interactable)
             {
-                Debug.Log("not interactable");
                 return;
             }
-
-            Debug.Log("interactable");
+            
             Press();
         }
 
@@ -56,10 +53,8 @@ namespace Ricimi
         {
             if (!IsActive())
             {
-                Debug.Log("Not Active");
                 return;
             }
-            Debug.Log("Active");
 
             m_animator.SetTrigger("Pressed");
             Invoke("InvokeOnClickAction", 0.2f);

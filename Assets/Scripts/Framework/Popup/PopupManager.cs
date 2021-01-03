@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace BizzyBeeGames
 {
@@ -24,6 +25,7 @@ namespace BizzyBeeGames
         #region Inspector Variables
 
         [SerializeField] private List<PopupInfo> popupInfos = null;
+        [SerializeField] private Volume volume;
 
         #endregion
 
@@ -38,7 +40,6 @@ namespace BizzyBeeGames
         protected override void Awake()
         {
             base.Awake();
-
             activePopups = new List<Popup>();
 
             for (int i = 0; i < popupInfos.Count; i++)
@@ -69,10 +70,19 @@ namespace BizzyBeeGames
 
         public void Show(string id, object[] inData, Popup.PopupClosed popupClosed)
         {
+            // if (volume != null)
+            // {
+            //     volume.enabled = true;
+            // }
             Popup popup = GetPopupById(id);
 
             if (popup != null)
             {
+                // for (int i = 0; i < activePopups.Count; i++)
+                // {
+                //     if (activePopups[i].canvas)
+                //         ShowChild(activePopups[i].canvas.gameObject, false);
+                //}
                 if (popup.Show(inData, popupClosed))
                 {
                     if (!popup.IsCustomAudio) { SoundManager.Instance.Play("PopupAppear"); }
@@ -133,6 +143,8 @@ namespace BizzyBeeGames
                     break;
                 }
             }
+            //  if (activePopups.Count > 0 && activePopups[activePopups.Count - 1].canvas)
+            //     ShowChild(activePopups[activePopups.Count - 1].canvas.gameObject, true);
         }
 
         #endregion
@@ -149,6 +161,26 @@ namespace BizzyBeeGames
             {
                 if (popup != null) { popup.gameObject.SetActive(false); }
             }
+
+            //  if (activePopups.Count <= 0 && volume != null)
+            // {
+            // volume.enabled = false;
+            // }
+
+
+        }
+
+        private void ShowChild(GameObject obj, bool show)
+        {
+            obj.layer = LayerMask.NameToLayer(show ? "Popup" : "Main Canvas");
+            Debug.Log("SetLayer");
+            Debug.Log(obj.name);
+            Debug.Log(show ? "Popup" : "Main Canvas");
+            if (obj.transform.childCount > 0)
+                foreach (Transform child in obj.transform)
+                {
+                    ShowChild(child.gameObject, show);
+                }
         }
         public Popup GetPopupById(string id)
         {
