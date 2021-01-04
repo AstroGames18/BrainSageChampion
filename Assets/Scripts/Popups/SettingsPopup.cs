@@ -71,9 +71,15 @@ namespace BizzyBeeGames
 
         public void SetDarkMode(bool enable)
         {
+            if (enable == UserDataManager.Instance.IsDarkModeOn())
+                return;
             darkModeEnabled = enable;
-            PopupManager.Instance.Show("ApplySettings", null, onApplySettingsClosed);
+            if (darkModeEnabled)
+                PopupManager.Instance.Show("ChangeToDarkmode", null, onApplySettingsClosed);
+            else
+                PopupManager.Instance.Show("ChangeFromDarkmode", null, onApplySettingsClosed);
         }
+
 
         public void onApplySettingsClosed(bool cancelled, object[] data)
         {

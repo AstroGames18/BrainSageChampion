@@ -50,7 +50,7 @@ namespace BizzyBeeGames
             GameEventManager.Instance.RegisterEventHandler(GameEventManager.EventId_DailyRewardSelected, onDailyRewardSelected);
             allAcheivementData = UserDataManager.Instance.GetAchivements();
         }
-        
+
         public void ShowGiftScreens()
         {
             if (allAcheivementData.Count == 0)
@@ -80,7 +80,7 @@ namespace BizzyBeeGames
 
         private void CheckDarkModeSettings()
         {
-            if (UserDataManager.Instance.dark_mode_popup_shown)
+            if (UserDataManager.Instance.dark_mode_popup_shown || true)
                 return;
             UserDataManager.Instance.dark_mode_popup_shown = true;
             if (UserDataManager.Instance.GetData("reloaded") > 0)

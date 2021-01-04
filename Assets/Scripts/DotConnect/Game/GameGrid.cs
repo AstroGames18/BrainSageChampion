@@ -1551,7 +1551,12 @@ namespace BizzyBeeGames.DotConnect
             int current_level = UserDataManager.Instance.GetData("current_level");
             if ((current_level) % GameConfiguration.Instance.intervalToShowInviteScreen == 0)
             {
-                PopupManager.Instance.Show("InviteScreen", null, OnInviteScreenClosed);
+                //PopupManager.Instance.Show("InviteScreen", null, OnInviteScreenClosed);
+
+                levelCompletePopup.homeButton.gameObject.SetActive(true);
+                levelCompletePopup.NextLevelButtonAnim.gameObject.GetComponent<Image>().enabled = true;
+                levelCompletePopup.NextLevelButtonAnim.gameObject.GetComponentInChildren<Text>().enabled = true;
+                levelCompletePopup.NextLevelButtonAnim.SetBool("focus", true);
             }
             else
             {

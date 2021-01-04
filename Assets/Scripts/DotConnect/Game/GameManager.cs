@@ -17,6 +17,7 @@ namespace BizzyBeeGames.DotConnect
         [SerializeField] private int numLevelsForGift = 25;
         [SerializeField] private Text levelTimer;
         [SerializeField] private LevelTimer timerObj;
+        private float timerStartSoundSec = 3f;
         public GameObject options_screen;
         public bool challenge_failed = false;
         public bool challenge_started = false;
@@ -112,6 +113,7 @@ namespace BizzyBeeGames.DotConnect
         private void OnDestroy()
         {
             SoundManager.Instance.Stop("LevelTimerLowOnTime");
+            SoundManager.Instance.Stop("LevelTimerFocus");
             Save();
             if (GameEventManager.Instance == null) { return; }
             GameEventManager.Instance.UnRegisterEventHandler(GameEventManager.EventId_ActiveLevelCompleted, OnActiveLevelComplete);
@@ -130,6 +132,7 @@ namespace BizzyBeeGames.DotConnect
 
                 StartLevel(packInfo);
             }
+
             if (timeAllotted != -1)
             {
                 if (timeAllotted <= 0)
@@ -218,6 +221,9 @@ namespace BizzyBeeGames.DotConnect
         /// </summary>
         public void StartLevel(PackInfo packInfo)
         {
+
+            SoundManager.Instance.Stop("LevelTimerLowOnTime");
+            SoundManager.Instance.Stop("LevelTimerFocus");
             // Check if the level has not been started and if there is load save data for it
             int bundle = 0, pack = 0, level_index = UserDataManager.Instance.GetData("current_level") - 1;
 

@@ -47,7 +47,7 @@ namespace BizzyBeeGames
             SetProphileStars(inventory_stars);
             SetProphileLoliipops(inventory_lollipops);
             SetBrainActivity();
-            QuestLevel.text = LeanLocalization.GetTranslationText("QuestLevel") + " - " + (UserDataManager.Instance.GetData("quest_level") + 1);
+            QuestLevel.text = /*LeanLocalization.GetTranslationText("QuestLevel") + " - " +*/ (UserDataManager.Instance.GetData("quest_level") + 1).ToString();
         }
         void SetProphileTrophies(int inventory_trophies)
         {
@@ -71,7 +71,7 @@ namespace BizzyBeeGames
                     hasMedal = true;
                     max = profile_tier.max_value;
                     numbers[0].GetComponent<Text>().text = profile_tier.medal_number.ToString();
-                    medal_tag[0].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
+                    //  medal_tag[0].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
                 }
             }
             if (!hasMedal)
@@ -105,7 +105,7 @@ namespace BizzyBeeGames
                     medal_images[1].GetComponent<Image>().sprite = GameConfiguration.Instance.GetMedalImage(profile_tier.badge);
                     profile_stars.GetComponent<Text>().text = inventory_stars.ToString() + "/" + profile_tier.max_value.ToString();
                     numbers[1].GetComponent<Text>().text = profile_tier.medal_number.ToString();
-                    medal_tag[1].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
+                    // medal_tag[1].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
                     starProgressBar.SetValue(progress_size);
                     StarGiftImage.sprite = GameConfiguration.Instance.GetGiftSprite(profile_tier.reward.giftType);
                 }
@@ -114,7 +114,7 @@ namespace BizzyBeeGames
                     hasMedal = true;
                     max = profile_tier.max_value;
                     numbers[1].GetComponent<Text>().text = profile_tier.medal_number.ToString();
-                    medal_tag[1].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
+                    // medal_tag[1].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
                 }
             }
             if (!hasMedal)
@@ -148,7 +148,7 @@ namespace BizzyBeeGames
                     medal_images[2].GetComponent<Image>().sprite = GameConfiguration.Instance.GetMedalImage(profile_tier.badge);
                     profile_lollipop.GetComponent<Text>().text = inventory_lollipop.ToString() + "/" + profile_tier.max_value.ToString();
                     numbers[2].GetComponent<Text>().text = profile_tier.medal_number.ToString();
-                    medal_tag[2].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
+                    // medal_tag[2].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
                     lollipopProgressBar.SetValue(progress_size);
                     LollipopGiftImage.sprite = GameConfiguration.Instance.GetGiftSprite(profile_tier.reward.giftType);
                 }
@@ -157,7 +157,7 @@ namespace BizzyBeeGames
                     hasMedal = true;
                     max = profile_tier.max_value;
                     numbers[2].GetComponent<Text>().text = profile_tier.medal_number.ToString();
-                    medal_tag[2].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
+                    // medal_tag[2].GetComponent<Text>().text = Lean.Localization.LeanLocalization.GetTranslationText(profile_tier.medal_tag);
                 }
             }
             if (!hasMedal)

@@ -30,9 +30,11 @@ namespace BizzyBeeGames
             Utils.DoSwipeVerticalAnimation(LevelOfferContainer, -2000f, -2000f, 0f);
 
             config = GameConfiguration.Instance;
+
             levelCounter += 1;
             showLevelCompleteOffer = levelCounter >= config.LevelMessageOfferContinousLevel;
             ShowLevelMessageContents();
+            closeButton.gameObject.SetActive(showLevelCompleteOffer);
             LevelOfferContainer.gameObject.SetActive(showLevelCompleteOffer);
         }
 
@@ -41,7 +43,7 @@ namespace BizzyBeeGames
             int add_trophies = GameManager.Instance.Grid.ActiveLevel.is_challenge_library ? GameConfiguration.Instance.WinTrophyChallenge :
                 GameConfiguration.Instance.WinTrophyNormal;
 
-            SoundManager.Instance.Play("LevelCompleteTrophyAmount");
+            // SoundManager.Instance.Play("LevelCompleteTrophyAmount");
             TrophyAmount.text = "x " + add_trophies;
         }
         public void ShowingTrophy()
@@ -63,14 +65,12 @@ namespace BizzyBeeGames
 
                 Utils.DoSwipeVerticalAnimation(LevelCompleteContainer, LevelCompleteContainer.anchoredPosition.y, LevelCompleteContainer.anchoredPosition.y + 500f, 1f);
                 Utils.DoSwipeVerticalAnimation(LevelOfferContainer, -1500f, LevelOfferContainer.anchoredPosition.y + 1500f, 1f);
-                closeButton.gameObject.SetActive(true);
-                Utils.DoSwipeHorizontalAnimation(closeButton, 300, closeButton.anchoredPosition.y, 1f, 0f);
+                //Utils.DoSwipeHorizontalAnimation(closeButton, 800f,400f, 1f, 0f);
 
                 offerIndex = (offerIndex + 1) % config.LevelMessageOffer.Count;
             }
             else
             {
-                closeButton.gameObject.SetActive(false);
                 StartCoroutine(Utils.ExecuteAfterDelay(1f, (args) => { onTouchInput(); })); ;
             }
         }
@@ -89,7 +89,7 @@ namespace BizzyBeeGames
             {
                 LevelMessage.text = messagePrefix + config.oneStarMessage[messageIndex] + "!";
             }
-            SoundManager.Instance.Play("LevelCompleteMessage");
+            // SoundManager.Instance.Play("LevelCompleteMessage");
             messageIndex = (messageIndex + 1) % config.threeStarMessage.Length;
         }
 
@@ -125,8 +125,8 @@ namespace BizzyBeeGames
             {
                 GetComponent<Animator>().SetBool("dissappear", true);
                 Utils.DoSwipeVerticalAnimation(LevelOfferContainer, LevelOfferContainer.anchoredPosition.y, -1500f, 1f);
-                Utils.DoSwipeHorizontalAnimation(closeButton, closeButton.anchoredPosition.y,300f, 1f, 0f);
-               
+                //Utils.DoSwipeHorizontalAnimation(closeButton, 400f,800f, 1f, 0f);
+
             }
         }
         public void OnPurchaseButtonClicked()

@@ -20,11 +20,9 @@ namespace BizzyBeeGames
             RewardText.text = "x " + amount;
             RewardIcon.sprite = tex;
             Utils.DoZoomAnimation(gameObject.transform as RectTransform, 0f, 1f, 0f);
-            StartCoroutine(Utils.ExecuteAfterDelay(/*index * 0.35f*/0f, (args) =>
-            {
-                Utils.DoZoomAnimation(gameObject.transform as RectTransform, 0.5f, 0f, 1f);
-                SoundManager.Instance.Play(sound);
-            }));
+
+            Utils.DoZoomAnimation(gameObject.transform as RectTransform, 0.5f, 0f, 1f);
+            SoundManager.Instance.Play(sound);
             reachedTraget = false;
         }
         public void HideCardBG()

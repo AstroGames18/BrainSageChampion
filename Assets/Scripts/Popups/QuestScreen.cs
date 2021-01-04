@@ -91,6 +91,7 @@ namespace BizzyBeeGames
             ProgressText.GetComponent<Text>().text = Math.Min(user_quest.amount_collected, user_quest.max_amount) + "/" + user_quest.max_amount;
             QuestProgress.SetValue(Math.Min(user_quest.amount_collected, user_quest.max_amount) / (float)user_quest.max_amount);
             QuestIcon.GetComponent<Image>().sprite = reward_display.image;
+            QuestIcon.transform.localScale = GetQuestInfoIconScale(user_quest);
             GiftImage.GetComponent<Image>().sprite = config.GetGiftSprite(QuestManager.Instance.GetCurrentQuestTierInfo().TypeOfGift);
 
             Sprite slider_bg = null;
@@ -173,6 +174,15 @@ namespace BizzyBeeGames
             moveCount = user_quest.moves_rewarded;
             return "x " + user_quest.moves_rewarded;
         }
+        private Vector3 GetQuestInfoIconScale(UserQuest user_quest)
+        {
+            if (user_quest.type == QuestType.collectable_type.PAIR_CANDIES)
+            {
+                return Vector3.one * 0.8f;
+            }
+            return Vector3.one;
+        }
+
         private RewardDisplay GetQuestInfoReward(UserQuest user_quest)
         {
             RewardDisplay reward_display = new RewardDisplay();

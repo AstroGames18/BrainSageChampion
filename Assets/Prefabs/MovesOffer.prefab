@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mini Offer
+  m_text: Deal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 713e2785913c7534ca85c2c5a9ab7405, type: 2}
   m_sharedMaterial: {fileID: 21575700689611970, guid: 713e2785913c7534ca85c2c5a9ab7405,
@@ -135,10 +135,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3213302152854781969}
-    characterCount: 10
+    characterCount: 4
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mega Offer
+  m_text: Mega Deal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 713e2785913c7534ca85c2c5a9ab7405, type: 2}
   m_sharedMaterial: {fileID: 21575700689611970, guid: 713e2785913c7534ca85c2c5a9ab7405,
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3213302153980220124}
-    characterCount: 10
+    characterCount: 9
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1.55
+  m_PixelsPerUnitMultiplier: 1.8
 --- !u!114 &3213302154074812788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1.55
+  m_PixelsPerUnitMultiplier: 1.8
 --- !u!114 &4209162508917489028
 MonoBehaviour:
   m_ObjectHideFlags: 0

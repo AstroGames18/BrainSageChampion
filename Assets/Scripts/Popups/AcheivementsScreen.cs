@@ -104,7 +104,8 @@ namespace BizzyBeeGames
             NextMedalNumber.text = nextTier.medal_number.ToString();
 
             PrevAchievementImage.sprite = GameConfiguration.Instance.GetMedalImage(prevTier.badge);
-            PrevAcheivementTag.text = Lean.Localization.LeanLocalization.GetTranslationText(prevTier.medal_tag);
+            // PrevAcheivementTag.text = Lean.Localization.LeanLocalization.GetTranslationText(prevTier.medal_tag);
+            PrevAcheivementTag.text = GetConfigProfileTitle(keyInventory);
             PrevMedalNumber.text = prevTier.medal_number.ToString();
 
 

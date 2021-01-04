@@ -463,14 +463,17 @@ namespace BizzyBeeGames.DotConnect
             {
                 case QuestType.collectable_type.COLLECT_STARS:
                     questIcon.sprite = StarsSpriteSmall;
+                    questIcon.transform.localScale = Vector3.one;
                     slider_bg = StarSlider;
                     break;
                 case QuestType.collectable_type.COLLLECT_LOLLIPOP:
                     questIcon.sprite = LollipopSpriteSmall;
+                    questIcon.transform.localScale = Vector3.one;
                     slider_bg = LollipopSlider;
                     break;
                 case QuestType.collectable_type.PAIR_CANDIES:
                     questIcon.sprite = PairedCandySpriteSmall;
+                    questIcon.transform.localScale = Vector3.one * 0.8f;
                     slider_bg = PairedCandySlider;
                     break;
             }
@@ -565,7 +568,11 @@ namespace BizzyBeeGames.DotConnect
             }
             else
             {
-                ShowInviteScreen();
+                if (!hasPopup())
+                {
+                    nextLevelButtonText.text = "Lvl " + UserDataManager.Instance.GetData("current_level");
+                }
+                //ShowInviteScreen();
             }
         }
         private void OnSubscriptionScreenClosed(bool cancelled, object[] data)
@@ -589,6 +596,11 @@ namespace BizzyBeeGames.DotConnect
         {
             inviteShown = true;
             PopupManager.Instance.Show("InviteScreen", null, OnInviteScreenClosed);
+
+            if (!hasPopup())
+            {
+                nextLevelButtonText.text = "Lvl " + UserDataManager.Instance.GetData("current_level");
+            }
         }
         /// <summary>
         /// Show next gift after acheivement is closed
@@ -613,8 +625,8 @@ namespace BizzyBeeGames.DotConnect
             if (UserDataManager.Instance.GetData("mini_game_stars") >= GameConfiguration.Instance.MiniGameMaxStars && !subscriptionShowed)
                 return true;
             int current_level = UserDataManager.Instance.GetData("current_level");
-            if ((current_level) % GameConfiguration.Instance.intervalToShowInviteScreen == 0 && !inviteShown)
-                return true;
+            // if ((current_level) % GameConfiguration.Instance.intervalToShowInviteScreen == 0 && !inviteShown)
+            //   return true;
             return false;
 
         }

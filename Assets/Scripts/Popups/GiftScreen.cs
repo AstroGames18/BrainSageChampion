@@ -148,59 +148,18 @@ namespace BizzyBeeGames
             {
                 // if gift is being opened for the first time, open the lid
                 SoundManager.Instance.Play("GiftLidOpened");
-                Utils.DoSwipeVerticalAnimation(GiftTop, GiftTop.anchoredPosition.y, GiftTop.anchoredPosition.y + 2000f, 1f, 0f);
+                giftAnimator.SetBool("OpenLid", true);
+                //Utils.DoSwipeVerticalAnimation(GiftTop, GiftTop.anchoredPosition.y, GiftTop.anchoredPosition.y + 2000f, 1f, 0f);
             }
             else
             {
                 // if gift is already opened show the reward card
                 SoundManager.Instance.Play("RewardCardGoesUp");
-                //Utils.DoSwipeVerticalAnimation(RewardCard, resetPositionsCard + 750f, resetPositionsCard + 1750f, 0.5f);
             }
 
             StartCoroutine(Utils.ExecuteAfterDelay(0.5f, (args3) =>
             {
-                // CardImage.sprite = CardFront;
-                // RewardIcon.gameObject.SetActive(false);
-                //RewardText.gameObject.SetActive(false);
-                //Sprite rewardIcon = getSpriteForId(reward.type);
-
-                // move the card up and zoom in
-                //Utils.DoSwipeVerticalAnimation(RewardCard, resetPositionsCard, resetPositionsCard + 750f, 1f);
-                //Utils.DoZoomAnimation(RewardCard, 1f, 0f, 1f);
-
                 SoundManager.Instance.Play("RewardCardShown");
-
-                StartCoroutine(Utils.ExecuteAfterDelay(1f, (args2) =>
-                {
-                    // start flip animation till center fold
-                    //Utils.DoScaleAnimation(RewardCardFront, 1f, 0f, 0.5f);
-                    StartCoroutine(Utils.ExecuteAfterDelay(1f, (args1) =>
-                    {
-                        //SoundManager.Instance.Play(getRewardSound(reward.type));
-                        //RewardIcon.gameObject.SetActive(true);
-                        // RewardText.gameObject.SetActive(true);
-                        //RewardText.text = "x " + reward.amount;
-                        //RewardIcon.sprite = rewardIcon;
-                        //CardImage.sprite = CardBack;
-
-                        // resume flip animation from center fold
-                        //Utils.DoScaleAnimation(RewardCard, 0f, 1f, 0.5f);
-                        //StartCoroutine(Utils.ExecuteAfterDelay(1, (args) =>
-                        //{
-                        //    cardShowing = false;
-                        //    if (giftOpenedCounter >= giftRewards.Count)
-                        //    {
-                        //        cardShowing = true;
-                        //        Utils.DoSwipeVerticalAnimation(GiftBase, GiftBase.anchoredPosition.y, GiftBase.anchoredPosition.y - 1000f, 1f, 0f);
-                        //        Utils.DoSwipeVerticalAnimation(GiftMask, GiftMask.anchoredPosition.y, GiftMask.anchoredPosition.y - 1000f, 1f, 0f);
-                        //        //Utils.DoSwipeVerticalAnimation(RewardCard, resetPositionsCard + 750f, resetPositionsCard + 1750f, 0.5f);
-                        //        Utils.DoSwipeVerticalAnimation(ClaimButton, resetPositionButton, resetPositionButton + 500f, 1f, 1f);
-
-                        //        ShowAllRewards();
-                        //    }
-                        //}));
-                    }));
-                }));
             }));
         }
 
@@ -228,15 +187,15 @@ namespace BizzyBeeGames
             if (cardShowing) { return; }
             titleText.gameObject.SetActive(false);
 
+            if (!giftAnimator.GetBool("tap"))
+                giftAnimator.SetBool("tap", true);
+
             //if there is more gifts to be shown, show
             // else show all the gifts we received one final time
             if (giftOpenedCounter < giftRewards.Count)
             {
                 AnimatedShine.SetActive(false);
-                giftAnimator.SetBool("tap", true);
-                ResetPositions();
                 OpenGiftBox(giftRewards[giftOpenedCounter]);
-                //TapInfo.SetActive(false);
                 giftBoxOpened = true;
                 giftAnimator.SetTrigger("shoot");
                 giftOpenedCounter += 1;
@@ -244,10 +203,12 @@ namespace BizzyBeeGames
             else
             {
                 cardShowing = true;
-                Utils.DoSwipeVerticalAnimation(GiftBase, GiftBase.anchoredPosition.y, GiftBase.anchoredPosition.y - 1000f, 1f, 0f);
-                Utils.DoSwipeVerticalAnimation(GiftMask, GiftMask.anchoredPosition.y, GiftMask.anchoredPosition.y - 1000f, 1f, 0f);
+
+                giftAnimator.SetBool("showAllGift", true);
+                //Utils.DoSwipeVerticalAnimation(GiftBase, GiftBase.anchoredPosition.y, GiftBase.anchoredPosition.y - 1000f, 1f, 0f);
+                //Utils.DoSwipeVerticalAnimation(GiftMask, GiftMask.anchoredPosition.y, GiftMask.anchoredPosition.y - 1000f, 1f, 0f);
                 //Utils.DoSwipeVerticalAnimation(RewardCard, resetPositionsCard + 750f, resetPositionsCard + 1750f, 0.5f);
-                Utils.DoSwipeVerticalAnimation(ClaimButton, resetPositionButton, resetPositionButton + 500f, 1f, 1f);
+                //Utils.DoSwipeVerticalAnimation(ClaimButton, resetPositionButton, resetPositionButton + 500f, 1f, 1f);
 
                 ShowAllRewards();
             }
@@ -322,8 +283,13 @@ namespace BizzyBeeGames
         /// Displaying all the gifts received after 
         /// showing one by one
         /// </summary>
+        /// 
+        bool cardsAdded = false;
         private void ShowAllRewards()
         {
+            if (cardsAdded)
+                return;
+            cardsAdded = true;
             TapInfo.SetActive(false);
             allCards = new List<GiftCard>();
             for (int i = 0; i < giftRewards.Count; i++)
@@ -346,9 +312,10 @@ namespace BizzyBeeGames
         {
             if (end)
             {
-                Utils.DoSwipeVerticalAnimation(GiftTop, GiftTop.anchoredPosition.y, GiftTop.anchoredPosition.y - 2000f, 0f, 0f);
-                Utils.DoSwipeVerticalAnimation(GiftBase, GiftBase.anchoredPosition.y, GiftBase.anchoredPosition.y + 1000f, 0f, 0f);
-                Utils.DoSwipeVerticalAnimation(GiftMask, GiftMask.anchoredPosition.y, GiftMask.anchoredPosition.y + 1000f, 0f, 0f);
+                cardsAdded = false;
+                //Utils.DoSwipeVerticalAnimation(GiftTop, GiftTop.anchoredPosition.y, GiftTop.anchoredPosition.y - 2000f, 0f, 0f);
+                //Utils.DoSwipeVerticalAnimation(GiftBase, GiftBase.anchoredPosition.y, GiftBase.anchoredPosition.y + 1000f, 0f, 0f);
+                //Utils.DoSwipeVerticalAnimation(GiftMask, GiftMask.anchoredPosition.y, GiftMask.anchoredPosition.y + 1000f, 0f, 0f);
                 //Utils.DoSwipeVerticalAnimation(RewardCard, RewardCard.anchoredPosition.y, resetPositionsCard, 0f, 0f);
             }
             //Utils.DoSwipeVerticalAnimation(RewardCard, RewardCard.anchoredPosition.y, resetPositionsCard, 0f, 0f);
