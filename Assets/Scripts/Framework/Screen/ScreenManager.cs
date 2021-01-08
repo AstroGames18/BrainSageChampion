@@ -77,25 +77,25 @@ namespace BizzyBeeGames
 			Show(homeScreenId, false, true);
 		}
 
-		private void Update()
-		{
-			if (Input.GetKeyDown(KeyCode.Escape))
-			{
-				// First try and close an active popup (If there are any)
-				if (!PopupManager.Instance.CloseActivePopup())
-				{
-					// No active popups, if we are on the home screen close the app, else go back one screen
-					if (CurrentScreenId == HomeScreenId)
-					{
-						Application.Quit();
-					}
-					else
-					{
-						pause_screen.SetActive (true);
-					}
-				}
-			}
-		}
+		//private void Update()
+		//{
+		//	if (Input.GetKeyDown(KeyCode.Escape))
+		//	{
+		//		// First try and close an active popup (If there are any)
+		//		if (!PopupManager.Instance.CloseActivePopup())
+		//		{
+		//			// No active popups, if we are on the home screen close the app, else go back one screen
+		//			if (CurrentScreenId == HomeScreenId)
+		//			{
+		//				Application.Quit();
+		//			}
+		//			else
+		//			{
+		//				pause_screen.SetActive (true);
+		//			}
+		//		}
+		//	}
+		//}
 
 		#endregion
 

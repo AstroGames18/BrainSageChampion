@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 17.5, y: 19.99997}
+  m_AnchoredPosition: {x: -23, y: 13}
   m_SizeDelta: {x: 155, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &654047198619997777
@@ -298,7 +298,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 264}
-  m_SizeDelta: {x: 928, y: 350}
+  m_SizeDelta: {x: 1046, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6553942896572543897
 CanvasRenderer:
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lollipop Acheivement Complete
+  m_text: Lollipop Achievement Complete
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 713e2785913c7534ca85c2c5a9ab7405, type: 2}
   m_sharedMaterial: {fileID: 21575700689611970, guid: 713e2785913c7534ca85c2c5a9ab7405,
@@ -825,7 +825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: 20.000061}
+  m_AnchoredPosition: {x: -23.5, y: 13.000061}
   m_SizeDelta: {x: 156, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2318591666701977157
@@ -936,7 +936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -39.5, y: -7}
   m_SizeDelta: {x: 330, y: 330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7391321966171286936
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Star Acheivement Complete
+  m_text: Star Achievement Complete
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 713e2785913c7534ca85c2c5a9ab7405, type: 2}
   m_sharedMaterial: {fileID: 21575700689611970, guid: 713e2785913c7534ca85c2c5a9ab7405,
@@ -1430,7 +1430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 6}
+  m_AnchoredPosition: {x: -27.5, y: -1}
   m_SizeDelta: {x: 330, y: 330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8331545176147120642
@@ -1816,7 +1816,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -715}
-  m_SizeDelta: {x: 302.40002, y: 125.56799}
+  m_SizeDelta: {x: 353.8, y: 152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3389478187977226940
 CanvasRenderer:
@@ -2343,7 +2343,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 12}
+  m_AnchoredPosition: {x: 0, y: 26}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3389478188518243449
@@ -2402,8 +2402,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 160
+  m_fontSizeBase: 160
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2500,7 +2500,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 8}
+  m_AnchoredPosition: {x: 0, y: 26}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3389478188692516437
@@ -2559,8 +2559,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 160
+  m_fontSizeBase: 160
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2711,7 +2711,7 @@ MonoBehaviour:
   trophyBg: {fileID: 2230928775973717874}
   completedBg: {fileID: 21300000, guid: d5d473bd992bbee43ba5b19061144d31, type: 3}
   inCompletedBg: {fileID: 21300000, guid: bd752f8c000642a42bb41aa8283758c9, type: 3}
-  darkmodeBg: {fileID: 21300000, guid: a55e0730aaa4100428af299c69d84d43, type: 3}
+  darkmodeBg: {fileID: 21300000, guid: fe8a215d5ba245747a322b904196091c, type: 3}
   profile_trophies: {fileID: 263963295889060912}
   profile_stars: {fileID: 2153451105701614078}
   profile_lollipop: {fileID: 6420083475453046591}
@@ -2731,6 +2731,7 @@ MonoBehaviour:
   - {fileID: 77567659330713749}
   - {fileID: 1430283830592030288}
   - {fileID: 3426414568662336911}
+  achievementType: {fileID: 0}
   medalSmallSize: {x: 0.5, y: 0.5, z: 1}
 --- !u!1 &3389478189108150295
 GameObject:
@@ -2819,7 +2820,6 @@ GameObject:
   - component: {fileID: 3389478189353608514}
   - component: {fileID: 3389478189353608515}
   - component: {fileID: 3389478189353608512}
-  - component: {fileID: 4552969331281274420}
   m_Layer: 9
   m_Name: AcheivementText
   m_TagString: Untagged
@@ -2843,7 +2843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 494}
+  m_AnchoredPosition: {x: 0, y: 657}
   m_SizeDelta: {x: 0, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3389478189353608514
@@ -2902,20 +2902,6 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
---- !u!114 &4552969331281274420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3389478189353608518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  translationName: Chapter Complete
-  FallbackText: Chapter Complete
 --- !u!1 &3422588434688954693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2994,7 +2980,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Collect Lolipop
+  m_Text: Collect Lollipop
 --- !u!114 &6209223902922084853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3043,7 +3029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 17.500977, y: 19.99997}
+  m_AnchoredPosition: {x: -22.999023, y: 12.9999695}
   m_SizeDelta: {x: 155, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3879928068339259084
@@ -3224,7 +3210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Trophy Acheivement Complete
+  m_text: Trophy Achievement Complete
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 713e2785913c7534ca85c2c5a9ab7405, type: 2}
   m_sharedMaterial: {fileID: 21575700689611970, guid: 713e2785913c7534ca85c2c5a9ab7405,
@@ -3363,7 +3349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 393, y: 323}
+  m_AnchoredPosition: {x: 352.5, y: 316}
   m_SizeDelta: {x: 1100, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4054018743685055484
@@ -3585,7 +3571,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 264}
-  m_SizeDelta: {x: 928, y: 350}
+  m_SizeDelta: {x: 1046, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6078854914365521577
 CanvasRenderer:
@@ -3947,7 +3933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 17.000977, y: -9}
+  m_AnchoredPosition: {x: -23.499023, y: -16}
   m_SizeDelta: {x: 330, y: 330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5230207924441385796
@@ -4737,7 +4723,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 264}
-  m_SizeDelta: {x: 928, y: 350}
+  m_SizeDelta: {x: 1046, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &557275474961260931
 CanvasRenderer:

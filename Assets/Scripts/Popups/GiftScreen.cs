@@ -32,6 +32,7 @@ namespace BizzyBeeGames
         private bool giftBoxOpened = false;
         private int giftOpenedCounter = 0;
         private bool cardShowing = false;
+        private bool cardReadyForExit = false;
         private List<GiftCard> allCards = new List<GiftCard>();
         private bool rewardsClaimed = false;
         private GiftType giftType = GiftType.BLUE;
@@ -163,12 +164,20 @@ namespace BizzyBeeGames
             }));
         }
 
+        public void SetCardReadyForExit(){
+            cardReadyForExit = true;
+        }
+
+        public void CheckCardEnd(){
+             if (giftOpenedCounter < giftRewards.Count)
+             return;
+             else ShowNextGift();
+        }
         public void onCardAnimComplete()
         {
             cardShowing = false;
             StartCoroutine(Utils.ExecuteAfterDelay(0.2f, (args) =>
             {
-                cardShowing = false;
                 ShowNextGift();
             }));
         }
@@ -183,6 +192,10 @@ namespace BizzyBeeGames
 
         public void ShowNextGift()
         {
+            if(cardReadyForExit){
+            giftAnimator.SetTrigger("CardExit");
+            cardReadyForExit = false;
+            }
             // if card is being shown ignore input
             if (cardShowing) { return; }
             titleText.gameObject.SetActive(false);
@@ -295,6 +308,8 @@ namespace BizzyBeeGames
             for (int i = 0; i < giftRewards.Count; i++)
             {
 
+                Debug.Log("AddCard");
+                Debug.Log(giftRewards[i].type);
                 GameObject card = Instantiate(giftCard, DisplayContainer.transform);
 
                 GiftCard cardScript = card.GetComponent<GiftCard>();

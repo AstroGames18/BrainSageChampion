@@ -88,13 +88,19 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            PopupManager.Instance.Show("QuitScreen");
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.Escape))
+    //    {
+    //        Debug.Log(KeyCode.Escape);
+    //        if (PopupManager.Instance.Showing())
+    //        {
+    //            PopupManager.Instance.OnBackPressed();
+    //            return;
+    //        }
+    //        PopupManager.Instance.Show("QuitScreen");
+    //    }
+    //}
 
     public void QuitYesBtn()
     {

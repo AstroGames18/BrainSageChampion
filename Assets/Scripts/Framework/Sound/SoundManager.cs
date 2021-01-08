@@ -114,6 +114,8 @@ namespace BizzyBeeGames
         public void Play(string id, bool loop = false)
         {
             Debug.Log(id);
+            if (id != "")
+                return;
 
             if (PlayerPrefs.HasKey("toggle_sound") && PlayerPrefs.GetInt("toggle_sound") == 0) { return; }
             Play(id, loop, 0);
@@ -250,6 +252,8 @@ namespace BizzyBeeGames
         }
         public void PlayScreenBGM(string id)
         {
+            if (id != "StartScreenBGM" && id != "GameScreenBGM")
+                return;
             if (PlayerPrefs.HasKey("toggle_music") && PlayerPrefs.GetInt("toggle_music") == 0) { return; }
 
             StopScreenBGM();

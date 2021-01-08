@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lean.Localization;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TwoOfAKindGame;
@@ -16,6 +17,7 @@ namespace BizzyBeeGames
         public GameObject DividerLayout;
         public GameObject close;
         public GameObject claim;
+        public LeanToken giftCount;
         [Tooltip("The progress bar for mini game")]
         public GameObject ScrollBar;
         public TOKGameController gameController;
@@ -93,7 +95,8 @@ namespace BizzyBeeGames
             {
                 SoundManager.Instance.Play("LevelFailedPopup");
                 title.text = Lean.Localization.LeanLocalization.GetTranslationText("Time out");
-                subtitle.text = Lean.Localization.LeanLocalization.GetTranslationText("You've collected")+" " + multipleGifts.Count + " " + Lean.Localization.LeanLocalization.GetTranslationText("Gifts")+ "!";
+                giftCount.SetValue(multipleGifts.Count);
+                subtitle.text = Lean.Localization.LeanLocalization.GetTranslationText("You've collected x gifts");
 
             }
             else

@@ -1,4 +1,5 @@
 ﻿using BizzyBeeGames.DotConnect;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -95,6 +96,7 @@ namespace BizzyBeeGames
             }
         }
 
+
         public bool CloseActivePopup()
         {
             if (activePopups.Count > 0)
@@ -122,11 +124,7 @@ namespace BizzyBeeGames
                 {
                     Popup popup = activePopups[i];
 
-                    if (popup.CanAndroidBackClosePopup)
-                    {
-                        popup.Hide(true);
-                    }
-
+                    popup.Hide(true);
                 }
             }
 
@@ -147,6 +145,10 @@ namespace BizzyBeeGames
             //     ShowChild(activePopups[activePopups.Count - 1].canvas.gameObject, true);
         }
 
+        public bool Showing()
+        {
+            return activePopups.Count > 0;
+        }
         #endregion
 
         #region Private Methods
@@ -193,6 +195,11 @@ namespace BizzyBeeGames
             }
 
             return null;
+        }
+
+        public void OnBackPressed()
+        {
+            CloseActivePopup();
         }
 
         #endregion

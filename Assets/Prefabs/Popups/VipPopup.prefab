@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 75205087}
   - component: {fileID: 75205089}
   - component: {fileID: 75205088}
+  - component: {fileID: 1625984271448080161}
   m_Layer: 9
-  m_Name: Text (1)
+  m_Name: EULA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21277265, y: 0.066547625}
   m_AnchorMax: {x: 0.21277265, y: 0.066547625}
-  m_AnchoredPosition: {x: 20.799988, y: -0.5}
+  m_AnchoredPosition: {x: 20.799988, y: -0.5001221}
   m_SizeDelta: {x: 246.4295, y: 49.388916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &75205089
@@ -77,7 +78,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EULA
+  m_Text: 
+--- !u!114 &1625984271448080161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75205086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: EULA
+  FallbackText: 
 --- !u!1 &121017821
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +580,7 @@ GameObject:
   - component: {fileID: 1637549139}
   - component: {fileID: 5934500194413376492}
   m_Layer: 9
-  m_Name: Text (2)
+  m_Name: Privacy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -656,6 +671,7 @@ GameObject:
   - component: {fileID: 1773788946}
   - component: {fileID: 1773788948}
   - component: {fileID: 1773788947}
+  - component: {fileID: 6704399917546831308}
   m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
@@ -723,6 +739,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Billed per week for a year
+--- !u!114 &6704399917546831308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773788945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Billed per week for a year
+  FallbackText: 
 --- !u!1 &1938572061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2189,7 @@ GameObject:
   - component: {fileID: 5308423975729127557}
   - component: {fileID: 1517894763182565011}
   m_Layer: 9
-  m_Name: Text (4)
+  m_Name: 'Claim your Reward in:'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2569,7 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0514fed37a4deed429d036bcd7cf97b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAndroidBackClosePopup: 0
+  canAndroidBackClosePopup: 1
   animContainer: {fileID: 0}
   TitleContainer: {fileID: 6176626063960991169}
   ContentContainer: {fileID: 7978430379658390139}
@@ -2579,7 +2609,6 @@ MonoBehaviour:
   TitleHeader: {fileID: 5684276084220784491}
   BackgroundCard: {fileID: 2884862782656317595}
   MediumCardsBase:
-  - {fileID: 0}
   - {fileID: 677362291}
   SmallerCardsBase:
   - {fileID: 2293750526063377710}

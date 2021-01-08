@@ -21,6 +21,7 @@ namespace BizzyBeeGames
         [SerializeField] List<RectTransform> SwipeRightList = new List<RectTransform>();
         [SerializeField] List<RectTransform> SwipeDownList = new List<RectTransform>();
         [SerializeField] List<GameObject> objectsToHideOnExit = new List<GameObject>();
+        [SerializeField] List<Animator> exitAnimators = new List<Animator>();
         [SerializeField] float animEnterDuraion = 1.5f;
         [SerializeField] float animExitDuraion = 1.5f;
         [SerializeField] GameObject LoadingIcon = null;
@@ -95,6 +96,10 @@ namespace BizzyBeeGames
                 for (int i = 0; i < objectsToHideOnExit.Count; i++)
                 {
                     objectsToHideOnExit[i].SetActive(false);
+                }
+                for (int i = 0; i < exitAnimators.Count; i++)
+                {
+                    exitAnimators[i].SetBool("Exit", true);
                 }
             }
 

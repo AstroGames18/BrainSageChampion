@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using static UserData;
 using System;
+using Lean.Localization;
 
 namespace BizzyBeeGames
 {
@@ -24,6 +25,7 @@ namespace BizzyBeeGames
         [SerializeField] GameObject StarProgressContainer, StarProgressCompleteContainer, TrophyProgressContainer, TrophyProgressCompleteContainer, LollipopProgressContainer, LollipopProgressCompleteContainer;
         [SerializeField] RectTransform prevMedalObj, nextmedalObj, giftObj;
         [SerializeField] GameObject[] giftObjItems;
+        [SerializeField] LeanToken achievementType;
 
         [SerializeField] Vector3 medalSmallSize = new Vector3(0.5f, 0.5f, 1f);
 
@@ -82,7 +84,8 @@ namespace BizzyBeeGames
         private void ShowProfileAcheivement(string keyInventory)
         {
             SoundManager.Instance.Play("MedalAcheivementAppear");
-            AcheivementText.text = "Medal target completed on\n" + GetConfigProfileTitle(keyInventory);
+            achievementType.SetValue(GetConfigProfileTitle(keyInventory));
+            AcheivementText.text = LeanLocalization.GetTranslationText("Medal target completed on x");
             int inventory_amount = InventoryManager.Instance.GetInventory(keyInventory);
             PrevMedalNumber.gameObject.SetActive(true);
             NextMedalNumber.gameObject.SetActive(true);
@@ -124,14 +127,14 @@ namespace BizzyBeeGames
             switch (keyInventory)
             {
                 case InventoryManager.Key_InventoryStars:
-                    title = "Stars";
+                    title = Lean.Localization.LeanLocalization.GetTranslationText("Stars");
                     break;
 
                 case InventoryManager.Key_InventoryTrophies:
-                    title = "Trophies";
+                    title = Lean.Localization.LeanLocalization.GetTranslationText("Trophies");
                     break;
                 case InventoryManager.Key_InventoryLollipops:
-                    title = "Lollipops";
+                    title = Lean.Localization.LeanLocalization.GetTranslationText("Lollipops");
                     break;
             }
             return title;

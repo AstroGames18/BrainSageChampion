@@ -1,4 +1,4 @@
-﻿using BizzyBeeGames.DotConnect;
+using BizzyBeeGames.DotConnect;
 using Lean.Localization;
 using System;
 using System.Collections.Generic;
@@ -20,8 +20,9 @@ namespace BizzyBeeGames
         [SerializeField] Image[] textBackgroundCapsules;
         [SerializeField] Text[] textBackgroundTexts;
         [SerializeField] private Animator PlayButtonAnim = null;
-        [SerializeField] private LeanToken level;
+        [SerializeField] private Text LevelButtonText;
         [SerializeField] private Text chapterBannerText;
+        [SerializeField] private SocialIcons socialIcons;
 
         // DarkMode Image Changes
         [SerializeField] Image BottomHudBarBG = null, ChapterCapsule = null, ChapterBannerBG = null, DailyRewardNotifImage = null, QuestScreenNotifImage = null, ProfileScreenNotifImage = null;
@@ -41,6 +42,7 @@ namespace BizzyBeeGames
             }
             else { DisableDailyRewards(); }
 
+            socialIcons.gameObject.SetActive(false);
             CheckDarkMode();
             DisplayStartScreenData();
             DisplayNotificationsData();
@@ -80,7 +82,7 @@ namespace BizzyBeeGames
 
         private void CheckDarkModeSettings()
         {
-            if (UserDataManager.Instance.dark_mode_popup_shown || true)
+            if (UserDataManager.Instance.dark_mode_popup_shown)
                 return;
             UserDataManager.Instance.dark_mode_popup_shown = true;
             if (UserDataManager.Instance.GetData("reloaded") > 0)
@@ -211,30 +213,33 @@ namespace BizzyBeeGames
         }
         public void AnimateSocialMediaIcons()
         {
-            float delayTime = 5f;
+            //float delayTime = 5f;
+            socialIcons.gameObject.SetActive(false);
             if (DailyRewardsButton.activeSelf || LoadingManager.Instance.isLoading) { return; }
-            for (int i = 0; i < SocialMediaIcons.Length; i++)
-            {
-                if (LoadingManager.Instance.isLoading) { return; }
 
-                RectTransform icon = SocialMediaIcons[i];
-                StartCoroutine(Utils.ExecuteAfterDelay(i * delayTime, (args) =>
-                {
-                    if (LoadingManager.Instance.isLoading) { return; }
-                    int j = (int)args[0];
-                    Utils.DoSwipeHorizontalAnimation(icon, 220f, -160f, 1f, 0f);
-                    StartCoroutine(Utils.ExecuteAfterDelay(delayTime, (args1) =>
-                    {
-                        if (LoadingManager.Instance.isLoading) { return; }
-                        int index = (int)args1[0];
-                        Utils.DoSwipeHorizontalAnimation(icon, -160f, 220f, 1f, 0f);
-                        if (index == SocialMediaIcons.Length - 1)
-                        {
-                            AnimateSocialMediaIcons();
-                        }
-                    }, new object[] { j }));
-                }, new object[] { i }));
-            }
+            socialIcons.gameObject.SetActive(true);
+            //for (int i = 0; i < SocialMediaIcons.Length; i++)
+            //{
+            //    if (LoadingManager.Instance.isLoading) { return; }
+
+            //    RectTransform icon = SocialMediaIcons[i];
+            //    StartCoroutine(Utils.ExecuteAfterDelay(i * delayTime, (args) =>
+            //    {
+            //        if (LoadingManager.Instance.isLoading) { return; }
+            //        int j = (int)args[0];
+            //        Utils.DoSwipeHorizontalAnimation(icon, 220f, -160f, 1f, 0f);
+            //        StartCoroutine(Utils.ExecuteAfterDelay(delayTime, (args1) =>
+            //        {
+            //            if (LoadingManager.Instance.isLoading) { return; }
+            //            int index = (int)args1[0];
+            //            Utils.DoSwipeHorizontalAnimation(icon, -160f, 220f, 1f, 0f);
+            //            if (index == SocialMediaIcons.Length - 1)
+            //            {
+            //                AnimateSocialMediaIcons();
+            //            }
+            //        }, new object[] { j }));
+            //    }, new object[] { i }));
+            //}
         }
         public void ResetSocialMediaIcons()
         {
@@ -331,18 +336,21 @@ namespace BizzyBeeGames
         public void DisplayLevelNumber()
         {
             StartCoroutine(Utils.ExecuteAfterDelay(5f, (args) => { PlayButtonAnim.SetBool("focus", true); }));
+            StartCoroutine(Utils.ExecuteAfterDelay(0.5f, (args) => {
+                
             if (GameConfiguration.Instance.IsGameCompleted())
             {
-                //LevelButtonText.GetComponent<Text>().text = "Completed";
-                level.SetValue("Completed");
+                LevelButtonText.GetComponent<Text>().text = "Completed";
+                //level.SetValue("Completed");
             }
             else
             {
 
                 int l = UserDataManager.Instance.GetData("current_level");
-                level.SetValue("Level: " + l.ToString());
-                //LevelButtonText.GetComponent<Text>().text = "Level: " + level.ToString();
+                //level.SetValue("Level: " + l.ToString());
+                LevelButtonText.GetComponent<Text>().text = LeanLocalization.GetTranslationText("Level") + ": " + l.ToString();
             }
+                 }));
         }
     }
 }

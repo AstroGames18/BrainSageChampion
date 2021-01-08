@@ -79,6 +79,11 @@ namespace TwoOfAKindGame
         [Tooltip("The maximum number of pairs allowed in the game")]
         public int pairsMaximum = 8;
 
+        
+        [SerializeField] Image CloseButton;
+        [SerializeField] Image TitleHeader;
+        [SerializeField] Image[] SmallerCardsBase;
+
         // Did we select the first object in the pair, or the second?
         internal bool firstOfPair = true;
 
@@ -118,6 +123,7 @@ namespace TwoOfAKindGame
 
         public Image BackgroundImage = null;
 
+        public Sprite darkBackground = null;
         [Tooltip("Various sounds and their source")]
         public AudioClip soundSelect;
         public AudioClip soundCorrect;
@@ -234,6 +240,14 @@ namespace TwoOfAKindGame
 
         private void SetBackgroundImage()
         {
+            if(UserDataManager.Instance.IsDarkModeOn()){
+                
+                    BackgroundImage.sprite = darkBackground;
+                    
+                GameConfiguration.Instance.SetDarkModeOnPopups(CloseButton, TitleHeader, null);
+                GameConfiguration.Instance.SetDarkModeOnCards(null, SmallerCardsBase);
+                return;
+            }
             ChapterTier data;
             int curr_level = UserDataManager.Instance.GetData("current_level");
             for (int i = 0; i < GameConfiguration.Instance.ChapterTiers.Count; i++)
@@ -242,6 +256,7 @@ namespace TwoOfAKindGame
                 if (curr_level >= data.min_level && curr_level < data.max_level)
                 {
                     BackgroundImage.sprite = data.chapter_image;
+                    break;
                 }
             }
         }

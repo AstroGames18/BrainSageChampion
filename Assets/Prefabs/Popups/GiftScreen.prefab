@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 76}
+  m_AnchoredPosition: {x: 0, y: 76.001465}
   m_SizeDelta: {x: -60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440452315857224178
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0e5c75fd265b4488b1fbb1a9a51507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAndroidBackClosePopup: 1
+  canAndroidBackClosePopup: 0
   animContainer: {fileID: 1023313989032394050}
   TitleContainer: {fileID: 0}
   ContentContainer: {fileID: 0}

@@ -253,7 +253,7 @@ namespace BizzyBeeGames.DotConnect
                     PopupManager.Instance.Show("QuestScreen", null, onQuestScreenClosed);
                     questCompleted = false;
                     nextLevelButtonText.text = hasPopup() ? LeanLocalization.GetTranslationText("Next")
-                : "Lvl " + UserDataManager.Instance.GetData("current_level");
+                : (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
                 }
                 else if (hasPopup())
                 {
@@ -395,9 +395,13 @@ namespace BizzyBeeGames.DotConnect
 
             QuestManager.Instance.waitForClaim = questComplete;
             QuestProgressBar.SetValue(questProgress);
+            
+            StartCoroutine(Utils.ExecuteAfterDelay(0.5f, (args) => {
             nextLevelButtonText.text = questCompleted ? LeanLocalization.GetTranslationText("Claim")
                 : hasPopup() ? LeanLocalization.GetTranslationText("Next")
-                : "Lvl " + UserDataManager.Instance.GetData("current_level");
+                : (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
+                
+                 }));
             float swipeUpAnimDuration = showLollipopProgress ? 0f : 1f;
             float showGiftDelay = showLollipopProgress ? 1.0f : 1.5f;
             if (showLollipopProgress) { Utils.DoZoomAnimation(LollipopProgress, 0.5f, 1f, 0f, 0f); }
@@ -457,6 +461,10 @@ namespace BizzyBeeGames.DotConnect
             questCompleted = user_quest.amount_collected >= user_quest.max_amount;
             if (user_quest.amount_collected >= user_quest.max_amount) { QuestProgressBarBG.sprite = questComplete; }
             else { QuestProgressBarBG.sprite = questIncomplete; }
+
+            if(UserDataManager.Instance.IsDarkModeOn()){
+                GameConfiguration.Instance.SetDarkModeOnCards(null,new Image[]{QuestProgressBarBG});
+            }
             if (questCompleted) { QuestManager.Instance.SetUserGiftReward(); }
             Sprite slider_bg = null;
             switch (user_quest.type)
@@ -570,7 +578,7 @@ namespace BizzyBeeGames.DotConnect
             {
                 if (!hasPopup())
                 {
-                    nextLevelButtonText.text = "Lvl " + UserDataManager.Instance.GetData("current_level");
+                    nextLevelButtonText.text = (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
                 }
                 //ShowInviteScreen();
             }
@@ -579,7 +587,7 @@ namespace BizzyBeeGames.DotConnect
         {
             if (!hasPopup())
             {
-                nextLevelButtonText.text = "Lvl " + UserDataManager.Instance.GetData("current_level");
+                nextLevelButtonText.text = (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
             }
         }
 
@@ -587,7 +595,7 @@ namespace BizzyBeeGames.DotConnect
         {
             if (!hasPopup())
             {
-                nextLevelButtonText.text = "Lvl " + UserDataManager.Instance.GetData("current_level");
+                nextLevelButtonText.text = (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
             }
         }
 
@@ -599,7 +607,7 @@ namespace BizzyBeeGames.DotConnect
 
             if (!hasPopup())
             {
-                nextLevelButtonText.text = "Lvl " + UserDataManager.Instance.GetData("current_level");
+                nextLevelButtonText.text =(LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
             }
         }
         /// <summary>
@@ -613,7 +621,7 @@ namespace BizzyBeeGames.DotConnect
                 UserDataManager.Instance.RemoveAchivement(0);
                 if (!hasPopup())
                 {
-                    nextLevelButtonText.text = "Lvl " + UserDataManager.Instance.GetData("current_level");
+                    nextLevelButtonText.text = (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
                 }
             }));
         }

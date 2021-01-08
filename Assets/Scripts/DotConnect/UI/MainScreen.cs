@@ -19,16 +19,17 @@ namespace BizzyBeeGames.DotConnect
 
         protected override void Start()
         {
+            Debug.Log(gameObject.name);
             base.Start();
             SetCurrentChapterBackground();
         }
-        void Update()
-        {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                ShowPauseScreen();
-            }
-        }
+        //void Update()
+        //{
+        //    if (Input.GetKey(KeyCode.Escape))
+        //    {
+        //        ShowPauseScreen();
+        //    }
+        //}
 
         #endregion
 

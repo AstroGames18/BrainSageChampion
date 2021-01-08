@@ -1,4 +1,5 @@
 ﻿using BizzyBeeGames.DotConnect;
+using Lean.Localization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ namespace BizzyBeeGames
         private void OnEnable()
         {
             int level_hardness = GameManager.Instance.ActiveLevelData.level_hardness;
-            LevelTitle.text = "Level - " + (GameManager.Instance.ActiveLevelData.LevelIndex + 1);
+            LevelTitle.text = LeanLocalization.GetTranslationText("Level") + " - " + (GameManager.Instance.ActiveLevelData.LevelIndex + 1);
             LevelProgress.SetValue(level_hardness, "", "%");
             progressFill.SetValue(level_hardness / 100f);
             StartCoroutine(Utils.ExecuteAfterDelay(1.5f, (args1) =>

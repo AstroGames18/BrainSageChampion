@@ -379,8 +379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -795}
-  m_SizeDelta: {x: 330, y: 140}
+  m_AnchoredPosition: {x: 540, y: -850}
+  m_SizeDelta: {x: 353.8, y: 152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5465647945065313875
 CanvasRenderer:
@@ -1549,7 +1549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5465647946606361552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08627034fde069a48b58a672b129991d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAndroidBackClosePopup: 1
+  canAndroidBackClosePopup: 0
   animContainer: {fileID: 5432550726627217602}
   TitleContainer: {fileID: 5432550725843864126}
   ContentContainer: {fileID: 8100445882125616516}
@@ -1631,7 +1631,7 @@ MonoBehaviour:
     type: 3}
   PairedCandySpriteSmall: {fileID: 21300000, guid: 82861b4a90bd4ed4ab9a2389bf0e3a63,
     type: 3}
-  DarkCardBG: {fileID: 21300000, guid: a55e0730aaa4100428af299c69d84d43, type: 3}
+  DarkCardBG: {fileID: 21300000, guid: fe8a215d5ba245747a322b904196091c, type: 3}
   movesIcon: {fileID: 5465647945836956802}
 --- !u!95 &5465647946606361557
 Animator:
