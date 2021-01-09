@@ -11,7 +11,7 @@ namespace BizzyBeeGames
 {
     public class StartScreen : MonoBehaviour
     {
-        [SerializeField] GameObject ChapterNumberText, TextCapsule, BackgroundImage, DailyRewardsButton, ChapterPackIcon, MovesIconHUD;
+        [SerializeField] GameObject ChapterNumberText, TextCapsule, BackgroundImage,DailyRewardsButton, ChapterPackIcon, MovesIconHUD;
         [SerializeField] GameObject NotificationDailyRewardsText, NotificationQuestScreenText, NotificationProfileScreenText;
         [SerializeField] GameObject NotificationDailyRewards, NotificationQuestScreen, NotificationProfileScreen;
         [SerializeField] Text ChapterPackTimer;
@@ -82,7 +82,7 @@ namespace BizzyBeeGames
 
         private void CheckDarkModeSettings()
         {
-            if (UserDataManager.Instance.dark_mode_popup_shown)
+            if (UserDataManager.Instance.dark_mode_popup_shown || true)
                 return;
             UserDataManager.Instance.dark_mode_popup_shown = true;
             if (UserDataManager.Instance.GetData("reloaded") > 0)
@@ -284,8 +284,6 @@ namespace BizzyBeeGames
         public void DisplayStartScreenData()
         {
             DisplayLevelNumber();
-            Debug.Log("Chapter");
-            Debug.Log("------------------------");
             ChapterTier data;
             int curr_level = UserDataManager.Instance.GetData("current_level");
             String message = "Sweet Brain";
@@ -294,8 +292,6 @@ namespace BizzyBeeGames
                 data = GameConfiguration.Instance.ChapterTiers[i];
                 if (curr_level >= data.min_level && curr_level < data.max_level)
                 {
-                    Debug.Log("1");
-                    Debug.Log(data.banner_message);
                     message = data.banner_message;
                     BackgroundImage.GetComponent<Image>().sprite = UserDataManager.Instance.IsDarkModeOn() ? DarkChapterBG : data.chapter_image;
                     ChapterNumberText.GetComponent<Text>().text = curr_level.ToString() + "/" + data.max_level;
@@ -306,8 +302,6 @@ namespace BizzyBeeGames
             data = GameConfiguration.Instance.ChapterTiers[GameConfiguration.Instance.ChapterTiers.Count - 1];
             if (curr_level >= data.max_level)
             {
-                Debug.Log("2");
-                Debug.Log(data.banner_message);
                 ChapterNumberText.GetComponent<Text>().text = curr_level.ToString();
                 message = data.banner_message;
             }

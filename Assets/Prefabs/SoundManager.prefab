@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundInfos:
   - id: StartScreenBGM
-    audioClip: {fileID: 8300000, guid: 4fc11bac8591a5e4a83cedcce33192cc, type: 3}
+    audioClip: {fileID: 8300000, guid: c5c677d1051646d428ddc5b0e9017e15, type: 3}
     type: 1
     playAndLoopOnStart: 0
     clipVolume: 0.2
@@ -55,7 +55,7 @@ MonoBehaviour:
     playAndLoopOnStart: 0
     clipVolume: 0.2
   - id: GameScreenBGM
-    audioClip: {fileID: 8300000, guid: f93c738e5a18538478e8c40c4cba4a0c, type: 3}
+    audioClip: {fileID: 8300000, guid: c5c677d1051646d428ddc5b0e9017e15, type: 3}
     type: 1
     playAndLoopOnStart: 0
     clipVolume: 0.2

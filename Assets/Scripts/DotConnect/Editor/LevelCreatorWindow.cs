@@ -13,7 +13,7 @@ namespace BizzyBeeGames.DotConnect
 
         private Vector2 scrollPosition;
         private int max_num_of_moves;
-        private int three_star, two_star, one_star;
+        private int three_star = 1, two_star = 3, one_star = 5;
         private bool current_level, is_challenge_library;
         public float time;
         private int gridRows = 5;
@@ -22,7 +22,7 @@ namespace BizzyBeeGames.DotConnect
         private bool toggleBlocks = true;
         private bool toggleBlanks = false;
 
-        private int numMoves;
+        private int numMoves = 1000;
         private int levelHardness = 0;
         private int minLines = 4;
         private int maxLines = 6;
@@ -362,18 +362,28 @@ namespace BizzyBeeGames.DotConnect
             {
                 "NONE", "Sweet Level", "Sugary Sweet Level", "Extra Sweet Level", "Extreme Sweet Level", "Brain Freezing Sweet"
             };
+            
+            GUIStyle white = new GUIStyle(EditorStyles.textField);
+    
+    //Value Color
+    white.normal.textColor = Color.white;
+            GUIStyle green = new GUIStyle(EditorStyles.textField);
+            
+    //Value Color
+    green.normal.textColor = Color.green;
             EditorGUILayout.BeginVertical(GUI.skin.box);
-            max_num_of_moves = Mathf.Max(1, EditorGUILayout.IntField("Number of Moves", max_num_of_moves));
-            levelHardness = Mathf.Max(0, EditorGUILayout.IntField("Level Hardness", levelHardness));
+            //max_num_of_moves = Mathf.Max(1, EditorGUILayout.IntField("Number of Moves", max_num_of_moves));
+            //levelHardness = Mathf.Max(0, EditorGUILayout.IntField("Level Hardness", levelHardness));
             numMoves = Mathf.Max(1, EditorGUILayout.IntField("Number of Iterations", numMoves));
             minLines = Mathf.Max(2, EditorGUILayout.IntField("Minimum Number of Lines", minLines));
             maxLines = Mathf.Max(0, EditorGUILayout.IntField("Maximum Number of Lines", maxLines));
-            three_star = Mathf.Max(3, EditorGUILayout.IntField("3 stars", three_star));
-            two_star = Mathf.Max(2, EditorGUILayout.IntField("2 stars", two_star));
-            one_star = Mathf.Max(2, EditorGUILayout.IntField("1 star", one_star));
+            three_star = Mathf.Max(1, EditorGUILayout.IntField("3 stars", three_star));
+            two_star = Mathf.Max(1, EditorGUILayout.IntField("2 stars", two_star));
+            one_star = Mathf.Max(1, EditorGUILayout.IntField("1 star", one_star,one_star != 5 ? green: white));// 
             time = Mathf.Max(0, EditorGUILayout.FloatField("Time", time));
-            is_challenge_library = EditorGUILayout.Toggle("is_challenge_library", is_challenge_library);
+            is_challenge_library = EditorGUILayout.Toggle("Is a challenge level", is_challenge_library);
             batchGeneration = EditorGUILayout.Toggle("Batch Generation", batchGeneration);
+
 
             levelHardness = Mathf.Min(100, levelHardness);
             if (batchGeneration)
