@@ -12303,1114 +12303,757 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf313c961e6ffc9488aa976d2d7d778a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoOfChallenges: 174
-  FirstTimeFreeMoves: 100
-  FirstTimeFreeResets: 10
-  FirstTimeFreeHints: 10
-  FirstTimeFreeUndos: 10
-  FirstTimeFreeCoins: 100
-  LevelFailMovesAdder: 6
-  MiniOfferCoins: 1000
-  MiniOfferMoves: 185
-  MegaOfferCoins: 3500
-  MegaOfferMoves: 369
-  WinTrophyNormal: 2
-  WinTrophyChallenge: 4
+  NoOfChallenges: 150
+  FirstTimeFreeMoves: 50
+  FirstTimeFreeResets: 100
+  FirstTimeFreeHints: 100
+  FirstTimeFreeUndos: 100
+  FirstTimeFreeCoins: 9000
+  LevelFailMovesAdder: 10
+  MiniOfferCoins: 500
+  MiniOfferMoves: 25
+  MegaOfferCoins: 800
+  MegaOfferMoves: 50
+  WinTrophyNormal: 1
+  WinTrophyChallenge: 2
   FailTrophyChallenge: 0
   ProfileTrophies:
   - min_value: 0
-    max_value: 12
+    max_value: 10
     medal_number: 5
-    medal_tag: Level Beginer
+    medal_tag: Bronze 5
     reward:
       list:
       - amount: 10
-        percentage: 60
+        percentage: 25
         type: 3
-      - amount: 3
-        percentage: 20
+      - amount: 1
+        percentage: 25
         type: 2
-      - amount: 2
-        percentage: 20
+      - amount: 1
+        percentage: 25
         type: 1
-      max_reward: 3
-      giftType: 4
-    badge: 2
-  - min_value: 12
-    max_value: 36
-    medal_number: 4
-    medal_tag: Level Gainer
-    reward:
-      list:
-      - amount: 20
-        percentage: 20
+      - amount: 250
+        percentage: 25
         type: 5
-      - amount: 2
-        percentage: 60
-        type: 4
-      - amount: 2
-        percentage: 20
-        type: 1
       max_reward: 1
       giftType: 1
     badge: 0
-  - min_value: 36
-    max_value: 55
-    medal_number: 3
-    medal_tag: Level Collector
+  - min_value: 10
+    max_value: 30
+    medal_number: 4
+    medal_tag: Bronze 4
     reward:
       list:
-      - amount: 2
-        percentage: 60
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
+      - amount: 250
+        percentage: 50
+        type: 5
       - amount: 15
-        percentage: 20
+        percentage: 50
         type: 3
-      - amount: 2
-        percentage: 20
-        type: 4
       max_reward: 2
       giftType: 1
     badge: 0
-  - min_value: 55
-    max_value: 80
+  - min_value: 30
+    max_value: 60
+    medal_number: 3
+    medal_tag: Bronze 3
+    reward:
+      list:
+      - amount: 2
+        percentage: 50
+        type: 1
+      - amount: 2
+        percentage: 50
+        type: 2
+      max_reward: 2
+      giftType: 1
+    badge: 0
+  - min_value: 60
+    max_value: 100
     medal_number: 2
-    medal_tag: Level Lover
+    medal_tag: Bronze 2
     reward:
       list:
       - amount: 20
-        percentage: 60
-        type: 5
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
+        percentage: 100
+        type: 3
       max_reward: 1
       giftType: 1
+    badge: 0
+  - min_value: 100
+    max_value: 150
+    medal_number: 1
+    medal_tag: Bronze 1
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 0
+  - min_value: 150
+    max_value: 220
+    medal_number: 6
+    medal_tag: Silver 6
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 1
+  - min_value: 220
+    max_value: 300
+    medal_number: 5
+    medal_tag: Silver 5
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 1
+  - min_value: 300
+    max_value: 400
+    medal_number: 4
+    medal_tag: Silver 4
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 1
+  - min_value: 400
+    max_value: 550
+    medal_number: 3
+    medal_tag: Silver 3
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 1
+  - min_value: 550
+    max_value: 750
+    medal_number: 2
+    medal_tag: Silver 2
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 1
+  - min_value: 750
+    max_value: 1000
+    medal_number: 1
+    medal_tag: Silver 1
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 1
+  - min_value: 1000
+    max_value: 1500
+    medal_number: 9
+    medal_tag: Gold 9
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 1500
+    max_value: 2000
+    medal_number: 8
+    medal_tag: Gold 8
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 2000
+    max_value: 2500
+    medal_number: 7
+    medal_tag: Gold 7
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 2500
+    max_value: 3000
+    medal_number: 6
+    medal_tag: Gold 6
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 3000
+    max_value: 3500
+    medal_number: 5
+    medal_tag: Gold 5
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 3500
+    max_value: 4000
+    medal_number: 4
+    medal_tag: Gold 4
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 4000
+    max_value: 4500
+    medal_number: 3
+    medal_tag: Gold 3
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 4500
+    max_value: 5000
+    medal_number: 2
+    medal_tag: Gold 2
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  - min_value: 5000
+    max_value: 5500
+    medal_number: 1
+    medal_tag: Gold 1
+    reward:
+      list:
+      - amount: 20
+        percentage: 100
+        type: 3
+      max_reward: 1
+      giftType: 1
+    badge: 2
+  ProfileStars:
+  - min_value: 0
+    max_value: 20
+    medal_number: 5
+    medal_tag: Bronze 5
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 0
+  - min_value: 20
+    max_value: 50
+    medal_number: 4
+    medal_tag: Bronz 4
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 0
+  - min_value: 50
+    max_value: 80
+    medal_number: 3
+    medal_tag: Bronze 3
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
     badge: 0
   - min_value: 80
-    max_value: 120
-    medal_number: 1
-    medal_tag: Level Achiever
+    max_value: 150
+    medal_number: 2
+    medal_tag: Bronze 2
     reward:
       list:
-      - amount: 10
-        percentage: 60
-        type: 1
-      - amount: 3
-        percentage: 20
+      - amount: 1
+        percentage: 100
         type: 2
-      - amount: 2
-        percentage: 20
+      max_reward: 1
+      giftType: 0
+    badge: 0
+  - min_value: 150
+    max_value: 200
+    medal_number: 1
+    medal_tag: Bronze 1
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 0
+  - min_value: 200
+    max_value: 300
+    medal_number: 6
+    medal_tag: Silver 6
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 1
+  - min_value: 300
+    max_value: 400
+    medal_number: 5
+    medal_tag: Silver 5
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 1
+  - min_value: 400
+    max_value: 600
+    medal_number: 4
+    medal_tag: Silver 4
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 1
+  - min_value: 600
+    max_value: 850
+    medal_number: 3
+    medal_tag: Silver 3
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 1
+  - min_value: 850
+    max_value: 1100
+    medal_number: 2
+    medal_tag: Silver 2
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 1
+  - min_value: 1100
+    max_value: 1500
+    medal_number: 1
+    medal_tag: Silver 1
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 1
+  - min_value: 1500
+    max_value: 2000
+    medal_number: 9
+    medal_tag: Gold 9
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 2000
+    max_value: 2500
+    medal_number: 8
+    medal_tag: Gold 8
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 2500
+    max_value: 3000
+    medal_number: 7
+    medal_tag: Gold 7
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 3000
+    max_value: 3500
+    medal_number: 6
+    medal_tag: Gold 6
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 3500
+    max_value: 4000
+    medal_number: 5
+    medal_tag: Gold 5
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 4000
+    max_value: 4500
+    medal_number: 4
+    medal_tag: Gold 4
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 4500
+    max_value: 5000
+    medal_number: 3
+    medal_tag: Gold 3
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 5000
+    max_value: 5500
+    medal_number: 2
+    medal_tag: Gold 2
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  - min_value: 5500
+    max_value: 6000
+    medal_number: 1
+    medal_tag: Gold 1
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 2
+      max_reward: 1
+      giftType: 0
+    badge: 2
+  ProfileLollipops:
+  - min_value: 0
+    max_value: 10
+    medal_number: 5
+    medal_tag: Bronze 1
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
         type: 1
       max_reward: 1
-      giftType: 1
+      giftType: 2
     badge: 0
-  - min_value: 120
+  - min_value: 10
+    max_value: 25
+    medal_number: 4
+    medal_tag: Bronze 4
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 0
+  - min_value: 25
+    max_value: 50
+    medal_number: 3
+    medal_tag: Bronze  3
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 0
+  - min_value: 50
+    max_value: 75
+    medal_number: 2
+    medal_tag: Bronze  2
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 0
+  - min_value: 75
+    max_value: 100
+    medal_number: 1
+    medal_tag: Bronze  1
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 0
+  - min_value: 100
     max_value: 150
     medal_number: 6
-    medal_tag: Level Thinker
+    medal_tag: Silver 6
     reward:
       list:
-      - amount: 5
-        percentage: 60
-        type: 4
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
+      - amount: 1
+        percentage: 100
         type: 1
       max_reward: 1
-      giftType: 0
+      giftType: 2
     badge: 1
   - min_value: 150
-    max_value: 180
+    max_value: 200
     medal_number: 5
-    medal_tag: Level Maniac
+    medal_tag: Silver 5
     reward:
       list:
-      - amount: 15
-        percentage: 60
-        type: 5
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
+      - amount: 1
+        percentage: 100
         type: 1
       max_reward: 1
-      giftType: 0
+      giftType: 2
     badge: 1
-  - min_value: 180
-    max_value: 199
+  - min_value: 200
+    max_value: 250
     medal_number: 4
-    medal_tag: Level Hunter
+    medal_tag: Silver 4
     reward:
       list:
-      - amount: 4
-        percentage: 60
-        type: 2
-      - amount: 3
-        percentage: 20
-        type: 1
-      - amount: 50
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 0
-    badge: 1
-  - min_value: 199
-    max_value: 220
-    medal_number: 3
-    medal_tag: Level Brain
-    reward:
-      list:
-      - amount: 10
-        percentage: 60
-        type: 3
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 4
-      max_reward: 1
-      giftType: 0
-    badge: 1
-  - min_value: 225
-    max_value: 260
-    medal_number: 2
-    medal_tag: Level Sage
-    reward:
-      list:
-      - amount: 6
-        percentage: 60
-        type: 4
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 0
-    badge: 1
-  - min_value: 260
-    max_value: 280
-    medal_number: 1
-    medal_tag: Level Master
-    reward:
-      list:
-      - amount: 30
-        percentage: 60
-        type: 5
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
+      - amount: 1
+        percentage: 100
         type: 1
       max_reward: 1
-      giftType: 0
+      giftType: 2
     badge: 1
-  - min_value: 280
+  - min_value: 250
     max_value: 300
-    medal_number: 9
-    medal_tag: Level Pro
-    reward:
-      list:
-      - amount: 4
-        percentage: 60
-        type: 1
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 2
-    badge: 2
-  - min_value: 300
-    max_value: 360
-    medal_number: 8
-    medal_tag: Level champion
-    reward:
-      list:
-      - amount: 7
-        percentage: 60
-        type: 4
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 360
-    max_value: 400
-    medal_number: 7
-    medal_tag: Level Mastemind
-    reward:
-      list:
-      - amount: 60
-        percentage: 60
-        type: 5
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 2
-    badge: 2
-  - min_value: 400
-    max_value: 450
-    medal_number: 6
-    medal_tag: Level Leader
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 450
-    max_value: 500
-    medal_number: 5
-    medal_tag: Level Guider
-    reward:
-      list:
-      - amount: 100
-        percentage: 60
-        type: 5
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 2
-    badge: 2
-  - min_value: 500
-    max_value: 550
-    medal_number: 4
-    medal_tag: level Prince
-    reward:
-      list:
-      - amount: 10
-        percentage: 60
-        type: 2
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 550
-    max_value: 600
     medal_number: 3
-    medal_tag: Level king
+    medal_tag: Silver 3
     reward:
       list:
-      - amount: 25
-        percentage: 60
-        type: 3
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 1
+  - min_value: 300
+    max_value: 400
+    medal_number: 2
+    medal_tag: Silver 2
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 1
+  - min_value: 400
+    max_value: 500
+    medal_number: 1
+    medal_tag: Silver 1
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 1
+  - min_value: 500
+    max_value: 600
+    medal_number: 9
+    medal_tag: Gold 9
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
         type: 1
       max_reward: 1
       giftType: 2
     badge: 2
   - min_value: 600
-    max_value: 650
-    medal_number: 2
-    medal_tag: Level Empire
-    reward:
-      list:
-      - amount: 10
-        percentage: 60
-        type: 1
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 650
     max_value: 700
-    medal_number: 1
-    medal_tag: Level God
-    reward:
-      list:
-      - amount: 600
-        percentage: 60
-        type: 5
-      - amount: 3
-        percentage: 20
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      max_reward: 1
-      giftType: 4
-    badge: 2
-  ProfileStars:
-  - min_value: 0
-    max_value: 3
-    medal_number: 5
-    medal_tag: Star Beginer
-    reward:
-      list:
-      - amount: 15
-        percentage: 40
-        type: 5
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 0
-    badge: 0
-  - min_value: 3
-    max_value: 45
-    medal_number: 4
-    medal_tag: star Gainer
-    reward:
-      list:
-      - amount: 2
-        percentage: 40
-        type: 1
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 3
-      giftType: 0
-    badge: 0
-  - min_value: 45
-    max_value: 65
-    medal_number: 3
-    medal_tag: Star Collector
-    reward:
-      list:
-      - amount: 20
-        percentage: 40
-        type: 3
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 0
-    badge: 0
-  - min_value: 65
-    max_value: 80
-    medal_number: 2
-    medal_tag: Star Lover
-    reward:
-      list:
-      - amount: 5
-        percentage: 40
-        type: 4
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 0
-    badge: 0
-  - min_value: 80
-    max_value: 100
-    medal_number: 1
-    medal_tag: Star Achiever
-    reward:
-      list:
-      - amount: 3
-        percentage: 40
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 0
-    badge: 0
-  - min_value: 100
-    max_value: 140
-    medal_number: 6
-    medal_tag: Star Thinker
-    reward:
-      list:
-      - amount: 15
-        percentage: 40
-        type: 5
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 2
-    badge: 1
-  - min_value: 140
-    max_value: 170
-    medal_number: 5
-    medal_tag: Star Maniac
-    reward:
-      list:
-      - amount: 15
-        percentage: 40
-        type: 3
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 1
-    badge: 1
-  - min_value: 170
-    max_value: 198
-    medal_number: 4
-    medal_tag: Star Hunter
-    reward:
-      list:
-      - amount: 2
-        percentage: 40
-        type: 1
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 2
-    badge: 1
-  - min_value: 198
-    max_value: 220
-    medal_number: 3
-    medal_tag: Star Brain
-    reward:
-      list:
-      - amount: 3
-        percentage: 40
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 2
-    badge: 1
-  - min_value: 220
-    max_value: 250
-    medal_number: 2
-    medal_tag: Star Sage
-    reward:
-      list:
-      - amount: 4
-        percentage: 40
-        type: 4
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 2
-    badge: 1
-  - min_value: 250
-    max_value: 270
-    medal_number: 1
-    medal_tag: Star Master
-    reward:
-      list:
-      - amount: 30
-        percentage: 40
-        type: 5
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 3
-    badge: 1
-  - min_value: 270
-    max_value: 300
-    medal_number: 9
-    medal_tag: Star Pro
-    reward:
-      list:
-      - amount: 15
-        percentage: 40
-        type: 3
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 2
-    badge: 2
-  - min_value: 300
-    max_value: 335
     medal_number: 8
-    medal_tag: Star champion
+    medal_tag: Gold 8
     reward:
       list:
-      - amount: 3
-        percentage: 40
+      - amount: 1
+        percentage: 100
         type: 1
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
       max_reward: 1
       giftType: 2
     badge: 2
-  - min_value: 335
-    max_value: 364
+  - min_value: 700
+    max_value: 800
     medal_number: 7
-    medal_tag: Star Mastemind
+    medal_tag: Gold 7
     reward:
       list:
-      - amount: 15
-        percentage: 40
-        type: 5
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
+      - amount: 1
+        percentage: 100
+        type: 1
       max_reward: 1
       giftType: 2
     badge: 2
-  - min_value: 364
-    max_value: 380
+  - min_value: 800
+    max_value: 900
     medal_number: 6
-    medal_tag: Star Leader
+    medal_tag: Gold 6
     reward:
       list:
-      - amount: 15
-        percentage: 40
-        type: 5
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
+      - amount: 1
+        percentage: 100
+        type: 1
       max_reward: 1
       giftType: 2
     badge: 2
-  - min_value: 380
-    max_value: 400
+  - min_value: 900
+    max_value: 1000
     medal_number: 5
-    medal_tag: Star Guider
+    medal_tag: Gold 5
     reward:
       list:
-      - amount: 4
-        percentage: 40
+      - amount: 1
+        percentage: 100
         type: 1
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 1
-    badge: 2
-  - min_value: 400
-    max_value: 420
-    medal_number: 4
-    medal_tag: Star Prince
-    reward:
-      list:
-      - amount: 4
-        percentage: 40
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
       max_reward: 1
       giftType: 2
     badge: 2
-  - min_value: 420
-    max_value: 450
-    medal_number: 3
-    medal_tag: Star king
+  - min_value: 1000
+    max_value: 1100
+    medal_number: 4
+    medal_tag: Gold 4
     reward:
       list:
-      - amount: 3
-        percentage: 40
-        type: 4
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
+      - amount: 1
+        percentage: 100
+        type: 1
+      max_reward: 1
+      giftType: 2
+    badge: 0
+  - min_value: 1100
+    max_value: 1200
+    medal_number: 3
+    medal_tag: Gold 3
+    reward:
+      list:
+      - amount: 1
+        percentage: 100
+        type: 1
       max_reward: 1
       giftType: 2
     badge: 2
-  - min_value: 450
-    max_value: 470
+  - min_value: 1200
+    max_value: 1300
     medal_number: 2
-    medal_tag: Star Empire
+    medal_tag: Gold 2
     reward:
       list:
-      - amount: 5
-        percentage: 40
+      - amount: 1
+        percentage: 100
         type: 1
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
       max_reward: 1
       giftType: 2
     badge: 2
-  - min_value: 470
-    max_value: 485
+  - min_value: 1300
+    max_value: 1400
     medal_number: 1
-    medal_tag: Star God
+    medal_tag: Gold 1
     reward:
       list:
-      - amount: 25
-        percentage: 40
-        type: 5
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 5
-        percentage: 30
-        type: 4
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  ProfileLollipops:
-  - min_value: 0
-    max_value: 1
-    medal_number: 5
-    medal_tag: Loli Beginer
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
+      - amount: 1
+        percentage: 100
         type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      - amount: 30
-        percentage: 20
-        type: 5
-      - amount: 30
-        percentage: 20
-        type: 5
-      - amount: 30
-        percentage: 20
-        type: 5
       max_reward: 1
-      giftType: 3
-    badge: 0
-  - min_value: 1
-    max_value: 40
-    medal_number: 4
-    medal_tag: Loli Gainer
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 0
-  - min_value: 40
-    max_value: 60
-    medal_number: 3
-    medal_tag: Loli Collector
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 0
-  - min_value: 60
-    max_value: 80
-    medal_number: 2
-    medal_tag: Loli Lover
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 0
-  - min_value: 80
-    max_value: 100
-    medal_number: 1
-    medal_tag: Loli Achiever
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 0
-  - min_value: 100
-    max_value: 120
-    medal_number: 6
-    medal_tag: Loli Thinker
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 1
-  - min_value: 120
-    max_value: 140
-    medal_number: 5
-    medal_tag: Loli Maniac
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 1
-  - min_value: 140
-    max_value: 150
-    medal_number: 4
-    medal_tag: Loli Hunter
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 1
-  - min_value: 150
-    max_value: 160
-    medal_number: 3
-    medal_tag: Loli Brain
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 1
-  - min_value: 160
-    max_value: 170
-    medal_number: 2
-    medal_tag: Loli Sage
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 1
-  - min_value: 170
-    max_value: 180
-    medal_number: 1
-    medal_tag: Loli  Master
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 1
-  - min_value: 180
-    max_value: 190
-    medal_number: 9
-    medal_tag: Loli Pro
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 190
-    max_value: 200
-    medal_number: 8
-    medal_tag: loli champion
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 200
-    max_value: 210
-    medal_number: 7
-    medal_tag: Loli Mastemind
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 210
-    max_value: 220
-    medal_number: 6
-    medal_tag: Loli Leader
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 220
-    max_value: 240
-    medal_number: 5
-    medal_tag: Loli Guider
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 240
-    max_value: 250
-    medal_number: 4
-    medal_tag: Loli Prince
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 0
-  - min_value: 250
-    max_value: 260
-    medal_number: 3
-    medal_tag: Loli king
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 260
-    max_value: 270
-    medal_number: 2
-    medal_tag: Loli Empire
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
-    badge: 2
-  - min_value: 270
-    max_value: 280
-    medal_number: 1
-    medal_tag: Loli God
-    reward:
-      list:
-      - amount: 5
-        percentage: 60
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
-      - amount: 30
-        percentage: 20
-        type: 5
-      max_reward: 1
-      giftType: 3
+      giftType: 2
     badge: 2
   BronzeBadge: {fileID: 21300000, guid: a11634b84356ced4ca1049611f24cd3a, type: 3}
   SilverBadge: {fileID: 21300000, guid: 2b28a2ed60c05e942bfbaabd8e07ce74, type: 3}
@@ -13418,8 +13061,8 @@ MonoBehaviour:
   BrainActivityLevelGap: 20
   ChapterTiers:
   - min_level: 0
-    max_level: 2
-    banner_message: Beginner Brain
+    max_level: 10
+    banner_message: chapter 1
     chapter_image: {fileID: 21300000, guid: 6312a1eb395598647a67edb756714bec, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: a5d1c880ed973b441a70e3a0ab1658e3,
       type: 3}
@@ -13431,14 +13074,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 50
-        type: 1
-      - amount: 3
-        percentage: 50
-        type: 2
+      - amount: 50
+        percentage: 100
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13449,9 +13089,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 2
-    max_level: 16
-    banner_message: Sweet Brain
+  - min_level: 10
+    max_level: 25
+    banner_message: chapter 2
     chapter_image: {fileID: 21300000, guid: a2b8f1a56bb21b643a6752532ab051dd, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 9d67ef0ef08912e4f94b0eb4c3a1a24e,
       type: 3}
@@ -13463,14 +13103,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 10
-        type: 1
-      - amount: 5
-        percentage: 90
-        type: 4
+      - amount: 50
+        percentage: 100
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 150
@@ -13481,9 +13118,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 16
-    max_level: 24
-    banner_message: Master Brain
+  - min_level: 25
+    max_level: 50
+    banner_message: chapter 3
     chapter_image: {fileID: 21300000, guid: dce18e578ac752b47a8decc99d1cbbc0, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: efcd3b3511469d94286101ae5bf3d4df,
       type: 3}
@@ -13495,17 +13132,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 40
-        type: 2
       - amount: 50
-        percentage: 40
+        percentage: 100
         type: 5
-      - amount: 3
-        percentage: 20
-        type: 1
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 25
@@ -13516,9 +13147,9 @@ MonoBehaviour:
         coins: 500
       time: 96
       price: 7.99
-  - min_level: 24
-    max_level: 32
-    banner_message: Champion Brain
+  - min_level: 50
+    max_level: 100
+    banner_message: chapter 4
     chapter_image: {fileID: 21300000, guid: 66873f7bc1e4dd64091077cbc1b5b8a2, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: ef528c0e5fbc09e4a9b0f9e2b90c640e,
       type: 3}
@@ -13530,17 +13161,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 20
-        type: 1
-      - amount: 5
-        percentage: 50
-        type: 4
-      - amount: 3
-        percentage: 30
-        type: 2
+      - amount: 50
+        percentage: 100
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13551,9 +13176,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 32
-    max_level: 40
-    banner_message: Beginner Sage
+  - min_level: 100
+    max_level: 200
+    banner_message: chapter 5
     chapter_image: {fileID: 21300000, guid: fd8a82551afb2bd4c8d78f0d512c3ad6, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: ad63e9192478b81489bd596b2022ee89,
       type: 3}
@@ -13565,17 +13190,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 20
-        type: 1
-      - amount: 15
-        percentage: 20
-        type: 3
       - amount: 50
-        percentage: 60
+        percentage: 100
         type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13586,9 +13205,9 @@ MonoBehaviour:
         coins: 600
       time: 0
       price: 0
-  - min_level: 40
-    max_level: 48
-    banner_message: Sweet Sage
+  - min_level: 200
+    max_level: 350
+    banner_message: chapter 6
     chapter_image: {fileID: 21300000, guid: 646652d7afc0da6478c41f28484aa906, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: ae0cf6fd884d8e04bb4cd4fc5088be48,
       type: 3}
@@ -13600,17 +13219,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 60
-        type: 1
       - amount: 50
-        percentage: 20
+        percentage: 100
         type: 5
-      - amount: 3
-        percentage: 20
-        type: 2
       max_reward: 1
-      giftType: 2
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13621,9 +13234,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 48
-    max_level: 56
-    banner_message: Master Sage
+  - min_level: 350
+    max_level: 500
+    banner_message: chapter 7
     chapter_image: {fileID: 21300000, guid: d3f64686f36ab7845a3249f669d9a306, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: c2a687c317847df41b655fc6492734c1,
       type: 3}
@@ -13635,17 +13248,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 3
-        percentage: 60
-        type: 2
-      - amount: 2
-        percentage: 20
-        type: 1
-      - amount: 5
-        percentage: 20
-        type: 4
+      - amount: 50
+        percentage: 100
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 0
@@ -13656,9 +13263,9 @@ MonoBehaviour:
         coins: 0
       time: 0
       price: 0
-  - min_level: 56
-    max_level: 64
-    banner_message: Champion Sage
+  - min_level: 500
+    max_level: 750
+    banner_message: chapter 8
     chapter_image: {fileID: 21300000, guid: 0fcef38253f88a740a3c2de7fda9db6c, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 820c3bb53fe513948b52b7b0dec3e74a,
       type: 3}
@@ -13670,17 +13277,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 100
-        type: 1
       - amount: 50
         percentage: 100
         type: 5
-      - amount: 3
-        percentage: 100
-        type: 2
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13691,9 +13292,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 64
-    max_level: 72
-    banner_message: Champion
+  - min_level: 750
+    max_level: 1000
+    banner_message: chapter 9
     chapter_image: {fileID: 21300000, guid: 897518a17a483994f882ce33c7ccae23, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 719acb357f3e065499ad791f098a6ca2,
       type: 3}
@@ -13706,16 +13307,10 @@ MonoBehaviour:
     reward:
       list:
       - amount: 50
-        percentage: 60
+        percentage: 100
         type: 5
-      - amount: 2
-        percentage: 20
-        type: 1
-      - amount: 20
-        percentage: 20
-        type: 3
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13726,9 +13321,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 72
-    max_level: 80
-    banner_message: Master Champion
+  - min_level: 1000
+    max_level: 1500
+    banner_message: chapter 10
     chapter_image: {fileID: 21300000, guid: d560347bf02960348af113d349fd43e8, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 8f83909676d52884eb09414798b12718,
       type: 3}
@@ -13741,16 +13336,10 @@ MonoBehaviour:
     reward:
       list:
       - amount: 50
-        percentage: 50
+        percentage: 100
         type: 5
-      - amount: 2
-        percentage: 30
-        type: 1
-      - amount: 3
-        percentage: 20
-        type: 2
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13761,9 +13350,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 80
-    max_level: 88
-    banner_message: Grand Champion
+  - min_level: 1500
+    max_level: 2000
+    banner_message: chapter 11
     chapter_image: {fileID: 21300000, guid: 30b71c98f305aa7489528a3adac3cf60, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 70f5055f1f39ad942a5c0c9a2f2c5420,
       type: 3}
@@ -13775,17 +13364,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 50
-        type: 1
       - amount: 50
-        percentage: 20
-        type: 5
-      - amount: 5
         percentage: 100
-        type: 2
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13796,9 +13379,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 2.44
-  - min_level: 88
-    max_level: 96
-    banner_message: Ultimate Champion
+  - min_level: 2000
+    max_level: 2500
+    banner_message: chapter 12
     chapter_image: {fileID: 21300000, guid: 9c355716fb3c18d4e95a4d09e93b63c3, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: fb699da1613332f46b1024c1d0bc8def,
       type: 3}
@@ -13810,17 +13393,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 30
-        type: 1
-      - amount: 5
-        percentage: 40
-        type: 2
       - amount: 50
-        percentage: 30
+        percentage: 100
         type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13831,9 +13408,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 96
-    max_level: 104
-    banner_message: Puzzle Brain
+  - min_level: 2500
+    max_level: 3000
+    banner_message: chapter 13
     chapter_image: {fileID: 21300000, guid: 62fc0517524d734418e58f315b482ccb, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 8be0a6cc696edf04ca7ba606ad96ce52,
       type: 3}
@@ -13845,17 +13422,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 60
-        type: 1
       - amount: 50
-        percentage: 20
+        percentage: 100
         type: 5
-      - amount: 5
-        percentage: 20
-        type: 2
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13866,9 +13437,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 104
-    max_level: 112
-    banner_message: Puzzle Sage
+  - min_level: 3000
+    max_level: 3500
+    banner_message: chapter 14
     chapter_image: {fileID: 21300000, guid: 6b71481ce58d3cd40a4f28c8b4a89512, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 423103f468ec4f647b801f8405f14577,
       type: 3}
@@ -13880,17 +13451,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 5
-        percentage: 50
-        type: 2
       - amount: 50
-        percentage: 30
+        percentage: 100
         type: 5
-      - amount: 20
-        percentage: 20
-        type: 3
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13901,9 +13466,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 112
-    max_level: 120
-    banner_message: Puzzle Champion
+  - min_level: 3500
+    max_level: 4000
+    banner_message: chapter 15
     chapter_image: {fileID: 21300000, guid: ec104abd7814dd2418cba1c14c3a80dd, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 79c88b99644a6624f87216bfc8d026d2,
       type: 3}
@@ -13915,17 +13480,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 2
-        percentage: 50
-        type: 1
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 6
-        percentage: 20
-        type: 4
+      - amount: 50
+        percentage: 100
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 0
@@ -13936,9 +13495,9 @@ MonoBehaviour:
         coins: 0
       time: 0
       price: 0
-  - min_level: 120
-    max_level: 128
-    banner_message: Challenge Brain
+  - min_level: 4000
+    max_level: 4500
+    banner_message: chapter 16
     chapter_image: {fileID: 21300000, guid: 2fc0e1d1450fcca4bae95171668c8909, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: bba7d89d0de9cf84f93ed61799942d34,
       type: 3}
@@ -13951,16 +13510,10 @@ MonoBehaviour:
     reward:
       list:
       - amount: 50
-        percentage: 50
+        percentage: 100
         type: 5
-      - amount: 2
-        percentage: 20
-        type: 1
-      - amount: 5
-        percentage: 30
-        type: 4
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -13971,9 +13524,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 128
-    max_level: 136
-    banner_message: Challenging Sage
+  - min_level: 4500
+    max_level: 5000
+    banner_message: chapter 17
     chapter_image: {fileID: 21300000, guid: 5fa60c5722876df4fbcee754ff0d9b07, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: ffa43135e9a18134e8696cceab9eb2d2,
       type: 3}
@@ -13985,17 +13538,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 15
-        percentage: 50
-        type: 3
-      - amount: 5
-        percentage: 40
-        type: 1
       - amount: 50
-        percentage: 10
+        percentage: 100
         type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 0
@@ -14006,9 +13553,9 @@ MonoBehaviour:
         coins: 0
       time: 0
       price: 0
-  - min_level: 136
-    max_level: 144
-    banner_message: Challenging Champion
+  - min_level: 5000
+    max_level: 5500
+    banner_message: chapter 18
     chapter_image: {fileID: 21300000, guid: 367d7d6787264d847a64fe21915b22fd, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: fce9bed5d370b6945b000ae90eba2f11,
       type: 3}
@@ -14020,17 +13567,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 15
-        percentage: 30
-        type: 3
-      - amount: 2
-        percentage: 40
-        type: 1
-      - amount: 5
-        percentage: 30
-        type: 2
+      - amount: 50
+        percentage: 100
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -14041,9 +13582,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 144
-    max_level: 152
-    banner_message: League-3
+  - min_level: 5500
+    max_level: 6000
+    banner_message: chapter 19
     chapter_image: {fileID: 21300000, guid: 48f098875925213438cf718cf1e61841, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 4ec2bcf4823c2c242b32bdb7c67ea51a,
       type: 3}
@@ -14055,17 +13596,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 60
-        percentage: 60
+      - amount: 50
+        percentage: 100
         type: 5
-      - amount: 2
-        percentage: 30
-        type: 1
-      - amount: 15
-        percentage: 10
-        type: 3
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 200
@@ -14076,9 +13611,9 @@ MonoBehaviour:
         coins: 600
       time: 48
       price: 4.99
-  - min_level: 152
-    max_level: 160
-    banner_message: League-2
+  - min_level: 6000
+    max_level: 6500
+    banner_message: chapter 20
     chapter_image: {fileID: 21300000, guid: 7ca2357961376f749994427cfadd907c, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: b64ae20f1711b434b839fa3012a8600a,
       type: 3}
@@ -14090,17 +13625,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 5
-        percentage: 20
-        type: 1
-      - amount: 60
-        percentage: 40
+      - amount: 50
+        percentage: 100
         type: 5
-      - amount: 15
-        percentage: 40
-        type: 3
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 0
@@ -14111,9 +13640,9 @@ MonoBehaviour:
         coins: 0
       time: 0
       price: 0
-  - min_level: 160
-    max_level: 170
-    banner_message: League-1
+  - min_level: 6500
+    max_level: 7000
+    banner_message: chapter 21
     chapter_image: {fileID: 21300000, guid: a7244e5a665c89449a967ce40aafdd86, type: 3}
     chapter_moves_counter_bg: {fileID: 21300000, guid: 5fe493f5f89e3c14885e248760712bf4,
       type: 3}
@@ -14125,17 +13654,11 @@ MonoBehaviour:
       type: 3}
     reward:
       list:
-      - amount: 15
-        percentage: 60
-        type: 3
-      - amount: 5
-        percentage: 30
-        type: 2
-      - amount: 2
-        percentage: 10
-        type: 1
+      - amount: 50
+        percentage: 100
+        type: 5
       max_reward: 1
-      giftType: 0
+      giftType: 3
     chapter_pack:
       pack:
         moves: 0
@@ -14146,7 +13669,7 @@ MonoBehaviour:
         coins: 0
       time: 0
       price: 0
-  QuestData: {fileID: 4900000, guid: a51e2104bdc55b3429f674afaf74a689, type: 3}
+  QuestData: {fileID: 4900000, guid: ae9240fd87e3dd241a2c1f72e9798151, type: 3}
   MovesLowerThreshold: 1
   DailyRewardConfig:
   - reward:
@@ -14374,19 +13897,19 @@ MonoBehaviour:
     max_reward: 2
     giftType: 3
   threeStarMessage:
-  - A puzzle Head
-  - Incredible
-  - A Champion
+  - Champion
+  - Champion
+  - Champion
   twoStarMessage:
-  - Brave
-  - The Best
-  - awsome
+  - Marvellous
+  - Marvellous
+  - Marvellous
   oneStarMessage:
-  - nice
-  - Very Good
-  - Wise
-  intervalToShowInviteScreen: 15
-  LevelMessageOfferContinousLevel: 1
+  - Amazing
+  - Amazing
+  - Amazing
+  intervalToShowInviteScreen: 25
+  LevelMessageOfferContinousLevel: 20
   LevelMessageOffer:
   - OfferOne:
       amount: 15
@@ -14410,7 +13933,7 @@ MonoBehaviour:
       type: 3
     PriceOfOffer: 2.99
   questTimerVisibilityMininmumMinutes: 60
-  MiniGameMaxStars: 1
+  MiniGameMaxStars: 30
   MaxScoreInMiniGame: 10000
   MiniGameTimeInSeconds: 30
   RewardsForMiniGameScore:
@@ -14451,7 +13974,7 @@ MonoBehaviour:
     max_reward: 1
     giftType: 3
   ScoreWonForCorrectMatch: 100
-  ScoreLostForWrongMatch: 25
+  ScoreLostForWrongMatch: 0
   ChapterGapRateUsPopup: 2
   MovesRechargeMaximumFreeMoves: 50
   MovesRechargedPerTimeGap: 5
@@ -14472,10 +13995,10 @@ MonoBehaviour:
   SubscriptionRewards:
     moves: 25
     trophies: 0
-    hint: 4
-    undo: 8
-    reset: 6
-    coins: 300
+    hint: 3
+    undo: 3
+    reset: 3
+    coins: 1000
   MediumDarkCard: {fileID: 21300000, guid: d186175b333ff8940be28e9fbba9eecd, type: 3}
   SmallDarkCard: {fileID: 21300000, guid: fe8a215d5ba245747a322b904196091c, type: 3}
   CloseDarkButton: {fileID: 21300000, guid: e236c6f9c8fd31f419a496d1f23af8c5, type: 3}
@@ -14483,7 +14006,7 @@ MonoBehaviour:
   PopupBackgroundDark: {fileID: 21300000, guid: 20ca2c88920eef14fa5828c37392dfbd,
     type: 3}
   isCustomLevel: 0
-  customLevel: 11
+  customLevel: 0
 --- !u!1 &569451166
 GameObject:
   m_ObjectHideFlags: 0
@@ -74764,6 +74287,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2056663468196302269}
     m_Modifications:
+    - target: {fileID: 75205087, guid: b6bb344f39a49f749af0b69038be38f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.50024414
+      objectReference: {fileID: 0}
     - target: {fileID: 152194225356867221, guid: b6bb344f39a49f749af0b69038be38f8,
         type: 3}
       propertyPath: m_AnchorMax.y
