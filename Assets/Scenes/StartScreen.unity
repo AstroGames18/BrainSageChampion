@@ -12304,15 +12304,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NoOfChallenges: 174
-  FirstTimeFreeMoves: 50
-  FirstTimeFreeResets: 15
-  FirstTimeFreeHints: 15
-  FirstTimeFreeUndos: 15
-  FirstTimeFreeCoins: 15
+  FirstTimeFreeMoves: 100
+  FirstTimeFreeResets: 10
+  FirstTimeFreeHints: 10
+  FirstTimeFreeUndos: 10
+  FirstTimeFreeCoins: 100
   LevelFailMovesAdder: 6
-  MiniOfferCoins: 2000
+  MiniOfferCoins: 1000
   MiniOfferMoves: 185
-  MegaOfferCoins: 4000
+  MegaOfferCoins: 3500
   MegaOfferMoves: 369
   WinTrophyNormal: 2
   WinTrophyChallenge: 4
