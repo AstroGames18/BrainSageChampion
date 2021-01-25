@@ -1,0 +1,18 @@
+{
+	"AchievementIDs":[
+		{
+			"InternalID":"Chapter1",
+			"AppleID":"",
+			"GoogleID":"CgkIjOmbpMwWEAIQAg"
+		}
+	],
+	"LeaderboardIDs":[],
+	"CloudVariables":[],
+	"AppleSupported":false,
+	"GoogleSupported":true,
+	"GoogleAppID":"776391292044",
+	"GoogleSetupRun":true,
+	"DebugModeEnabled":false,
+	"Version":"2.7.2",
+	"SettingsLocation":"0"
+}
