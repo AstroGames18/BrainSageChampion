@@ -458,7 +458,7 @@ MonoBehaviour:
   IncompleteProgressBG: {fileID: 21300000, guid: bd752f8c000642a42bb41aa8283758c9,
     type: 3}
   Background: {fileID: 3856048158319249153}
-  DarkBackground: {fileID: 21300000, guid: a55e0730aaa4100428af299c69d84d43, type: 3}
+  DarkBackground: {fileID: 21300000, guid: 6f6d6f6f3ac93e04f8cef2fa793b3611, type: 3}
 --- !u!114 &3856048158776516365
 MonoBehaviour:
   m_ObjectHideFlags: 0
