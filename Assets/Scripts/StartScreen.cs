@@ -11,7 +11,7 @@ namespace BizzyBeeGames
 {
     public class StartScreen : MonoBehaviour
     {
-        [SerializeField] GameObject ChapterNumberText, TextCapsule, BackgroundImage,DailyRewardsButton, ChapterPackIcon, MovesIconHUD;
+        [SerializeField] GameObject ChapterNumberText, TextCapsule, BackgroundImage, DailyRewardsButton, ChapterPackIcon, MovesIconHUD;
         [SerializeField] GameObject NotificationDailyRewardsText, NotificationQuestScreenText, NotificationProfileScreenText;
         [SerializeField] GameObject NotificationDailyRewards, NotificationQuestScreen, NotificationProfileScreen;
         [SerializeField] Text ChapterPackTimer;
@@ -82,7 +82,7 @@ namespace BizzyBeeGames
 
         private void CheckDarkModeSettings()
         {
-            if (UserDataManager.Instance.dark_mode_popup_shown || true)
+            if (UserDataManager.Instance.dark_mode_popup_shown)
                 return;
             UserDataManager.Instance.dark_mode_popup_shown = true;
             if (UserDataManager.Instance.GetData("reloaded") > 0)
@@ -295,6 +295,12 @@ namespace BizzyBeeGames
                     message = data.banner_message;
                     BackgroundImage.GetComponent<Image>().sprite = UserDataManager.Instance.IsDarkModeOn() ? DarkChapterBG : data.chapter_image;
                     ChapterNumberText.GetComponent<Text>().text = curr_level.ToString() + "/" + data.max_level;
+
+                    StartCoroutine(Utils.ExecuteAfterDelay(0.2f, (args) =>
+                    {
+                        Debug.Log(message);
+                        chapterBannerText.text = LeanLocalization.GetTranslationText("Chapter") + " " + i;
+                    }));
                     break;
                 }
             }
@@ -305,11 +311,6 @@ namespace BizzyBeeGames
                 ChapterNumberText.GetComponent<Text>().text = curr_level.ToString();
                 message = data.banner_message;
             }
-            StartCoroutine(Utils.ExecuteAfterDelay(0.2f, (args) =>
-            {
-                Debug.Log(message);
-                chapterBannerText.text = LeanLocalization.GetTranslationText(message);
-            }));
         }
 
         public void onPlayButton()
@@ -330,21 +331,22 @@ namespace BizzyBeeGames
         public void DisplayLevelNumber()
         {
             StartCoroutine(Utils.ExecuteAfterDelay(5f, (args) => { PlayButtonAnim.SetBool("focus", true); }));
-            StartCoroutine(Utils.ExecuteAfterDelay(0.5f, (args) => {
-                
-            if (GameConfiguration.Instance.IsGameCompleted())
-            {
-                LevelButtonText.GetComponent<Text>().text = "Completed";
-                //level.SetValue("Completed");
-            }
-            else
+            StartCoroutine(Utils.ExecuteAfterDelay(0.5f, (args) =>
             {
 
-                int l = UserDataManager.Instance.GetData("current_level");
-                //level.SetValue("Level: " + l.ToString());
-                LevelButtonText.GetComponent<Text>().text = LeanLocalization.GetTranslationText("Level") + ": " + l.ToString();
-            }
-                 }));
+                if (GameConfiguration.Instance.IsGameCompleted())
+                {
+                    LevelButtonText.GetComponent<Text>().text = "Completed";
+                    //level.SetValue("Completed");
+                }
+                else
+                {
+
+                    int l = UserDataManager.Instance.GetData("current_level");
+                    //level.SetValue("Level: " + l.ToString());
+                    LevelButtonText.GetComponent<Text>().text = LeanLocalization.GetTranslationText("Level") + ": " + l.ToString();
+                }
+            }));
         }
     }
 }

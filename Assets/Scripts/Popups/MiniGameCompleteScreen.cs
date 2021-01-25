@@ -47,13 +47,14 @@ namespace BizzyBeeGames
             for (int i = 0; i < RewardsForScore.Count; i++)
             {
                 GameObject divider = Instantiate(Divider, DividerLayout.transform);
-                GameObject gift = divider.transform.GetChild(0).gameObject;
+                GameObject gift = divider.transform.GetChild(1).gameObject;
                 gift.GetComponent<Image>().sprite = GameConfiguration.Instance.GetGiftSprite(RewardsForScore[i].giftType);
                 divider_list.Add(divider);
             }
 
             start_divider.GetComponent<Image>().color = new Color(0.0F, 0.0F, 0.0F, 0.0F);
             start_divider.transform.GetChild(0).gameObject.SetActive(false);
+            start_divider.transform.GetChild(1).gameObject.SetActive(false);
             UpdateScore();
         }
         private void MainMenu()

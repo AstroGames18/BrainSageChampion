@@ -1,4 +1,4 @@
-﻿using BizzyBeeGames.DotConnect;
+using BizzyBeeGames.DotConnect;
 using Lean.Localization;
 using System;
 using System.Collections;
@@ -10,15 +10,18 @@ namespace BizzyBeeGames
 {
     public class QuestScreen : Popup
     {
-        public GameObject MovesText, QuestInfoText, QuestTimer, ProgressText, QuestIcon, QuestInfoClaimButton, QuestOfferClaimButton, CloseButtonObj, questInfoItems, delayTimeText;
+        public GameObject MovesText, TrophyText, QuestInfoText, QuestTimer, ProgressText, QuestIcon, QuestInfoClaimButton, QuestOfferClaimButton, CloseButtonObj, questInfoItems, delayTimeText;
         [SerializeField] AnimatedScrollbar QuestProgress;
         [SerializeField] Text QuestLevel, QuestInfo;
+        [SerializeField] Text EarnedMovesText, EarnedTrophyText, TopHudTrophyText;
         [SerializeField] Image ProgressBG, QuestSlider;
         [SerializeField] Sprite IncompleteProgressBG, CompleteProgressBG, LollipopSlider, StarSlider, PairedCandySlider;
         public GameObject QuestOfferObject, MoveQuestOfferText, CardAnimatedShine;
         public GameObject CurrentPriceText, GiftImage, AnimationContainer;
         public Sprite HintSprite, ResetSprite, UndoSprite, TrophySprite, CoinSprite, StarsSpriteSmall, LollipopSpriteSmall, PairedCandySpriteSmall, DarkCardBG;
-        public Image movesIcon;
+        public Image movesIcon, trophyIcon;
+
+        public ParticleSystem[] animParticles;
 
         private bool outOfMoves = false;
         public class RewardDisplay
@@ -86,6 +89,7 @@ namespace BizzyBeeGames
             GameConfiguration config = GameConfiguration.Instance;
 
             MovesText.GetComponent<Text>().text = GetMovesText();
+            TrophyText.GetComponent<Text>().text = GetTrophyText();
             QuestInfoText.GetComponent<Text>().text = String.Format(reward_display.label, user_quest.max_amount);
             QuestTimer.GetComponent<Text>().text = Utils.ConvertSecondsToString((int)QuestManager.Instance.GetRemainingTimeForQuest());
             ProgressText.GetComponent<Text>().text = Math.Min(user_quest.amount_collected, user_quest.max_amount) + "/" + user_quest.max_amount;
@@ -141,6 +145,8 @@ namespace BizzyBeeGames
             QuestManager.Instance.UpdateQuest();
             MovesText.SetActive(true);
             movesIcon.color = new Color(1f, 1f, 1f, 1f);
+            TrophyText.SetActive(true);
+            trophyIcon.color = new Color(1f, 1f, 1f, 1f);
         }
         private void UpdateQuestOffer()
         {
@@ -172,7 +178,13 @@ namespace BizzyBeeGames
         {
             UserQuest user_quest = UserDataManager.Instance.LoadUserQuest();
             moveCount = user_quest.moves_rewarded;
-            return "x " + user_quest.moves_rewarded;
+            return "x " + moveCount;
+        }
+        string GetTrophyText()
+        {
+            QuestTier current_tier = QuestManager.Instance.GetCurrentQuestTierInfo();
+            trophyCount = current_tier.trophy_reward;
+            return "x " + trophyCount;
         }
         private Vector3 GetQuestInfoIconScale(UserQuest user_quest)
         {
@@ -224,14 +236,18 @@ namespace BizzyBeeGames
 
         public void StartMoveCountdown()
         {
+            movesIcon.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             moveDelay = 0.5f / moveCount;
             StartCoroutine(MovesCountDown());
         }
+
         IEnumerator MovesCountDown()
         {
             yield return new WaitForSeconds(moveDelay);
             moveCount--;
-            Debug.Log(moveCount);
+            int count = int.Parse(EarnedMovesText.text.Substring(1));
+            count++;
+            EarnedMovesText.text = "+" + count;
             MovesText.GetComponent<Text>().text = "x " + moveCount;
             if (moveCount > 0)
             {
@@ -240,7 +256,64 @@ namespace BizzyBeeGames
             else
             {
                 MovesText.SetActive(false);
-                movesIcon.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            }
+        }
+        int trophyCount = 0;
+        float TrohpyDelay = 0;
+        public void StartTrophyCountdown()
+        {
+            trophyIcon.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            TrohpyDelay = 0.5f / trophyCount;
+            StartCoroutine(TrophyCountDown());
+        }
+        IEnumerator TrophyCountDown()
+        {
+            yield return new WaitForSeconds(TrohpyDelay);
+            trophyCount--;
+            int count = int.Parse(EarnedTrophyText.text.Substring(1));
+            count++;
+            TrophyText.GetComponent<Text>().text = "x " + trophyCount;
+            EarnedTrophyText.text = "+" + count;
+            if (trophyCount > 0)
+            {
+                StartCoroutine(TrophyCountDown());
+            }
+            else
+            {
+                TrophyText.SetActive(false);
+
+            }
+        }
+
+        public void AddTrophyToHUD()
+        {
+            trophyCount = int.Parse(TopHudTrophyText.text);
+            int count = int.Parse(EarnedTrophyText.text.Substring(1));
+
+            TrohpyDelay = 0.4f / count;
+            StartCoroutine(TrophyTopHUD(trophyCount + count));
+        }
+        IEnumerator TrophyTopHUD(int total)
+        {
+            yield return new WaitForSeconds(TrohpyDelay);
+            trophyCount++;
+            TopHudTrophyText.text = trophyCount.ToString();
+            if (trophyCount < total)
+            {
+                StartCoroutine(TrophyTopHUD(total));
+            }
+        }
+
+        public void PlaySound(String id)
+        {
+            SoundManager.Instance.Play(id);
+        }
+
+        public void PlayParticle()
+        {
+            foreach (ParticleSystem p in animParticles)
+            {
+                p.Play();
             }
         }
     }

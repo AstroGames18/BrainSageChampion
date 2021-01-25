@@ -8,7 +8,7 @@ namespace BizzyBeeGames
 {
     public class MovesScreen : Popup
     {
-        [SerializeField] GameObject MovesTimer, Scrollbar, MovesInfoText, MovesText, MovesIconHUD, InstantRecharge, CardAnimatedShine;
+        [SerializeField] GameObject MovesTimer,MovesTimerInfo, Scrollbar, MovesInfoText, MovesText, MovesIconHUD, InstantRecharge, CardAnimatedShine;
         [SerializeField] Text InstantRechargeMoves, InstantRechargePrice;
         [SerializeField] Image Background;
         [SerializeField] Sprite CompleteProgressCardBG, IncompleteProgressCardBG;
@@ -52,6 +52,8 @@ namespace BizzyBeeGames
             InstantRecharge.SetActive(inventory_moves < max_free_moves);
             MovesIconHUD.GetComponent<Animator>().SetBool("recharged", inventory_moves >= max_free_moves);
             WhiteGlow.SetBool("shine", inventory_moves < max_free_moves);
+            MovesTimer.SetActive(inventory_moves < max_free_moves);
+            MovesTimerInfo.SetActive(inventory_moves < max_free_moves);
             MovesTimer.GetComponent<Text>().text = Utils.ConvertSecondsToString(0);
             CardAnimatedShine.SetActive(inventory_moves >= max_free_moves);
             if (inventory_moves >= max_free_moves) { Background.sprite = CompleteProgressCardBG; }

@@ -31,7 +31,7 @@ namespace BizzyBeeGames
 
         private float prevChapterImageReset = 0f;
         private float nextChapterImageReset = 1000f;
-        private float chapterImageOffset = 1000f;
+        private float chapterImageOffset = 2500f;
         private bool isChapter = false;
         private string keyInventory = "";
         private bool isRewardClaimed = false;
@@ -234,11 +234,12 @@ namespace BizzyBeeGames
             NextAcheivementTagRect.gameObject.SetActive(true);
             SoundManager.Instance.Play("ChapterAcheivementUpdate");
 
-            Utils.DoSwipeHorizontalAnimation(PrevAchievementImageRect, prevChapterImageReset, prevChapterImageReset - chapterImageOffset, 1f, 0f);
-            Utils.DoSwipeHorizontalAnimation(PrevAcheivementTagRect, prevChapterImageReset, prevChapterImageReset - chapterImageOffset, 1f, 0f);
+            bool landscape = UnityEngine.Screen.width > UnityEngine.Screen.height;
+            Utils.DoSwipeHorizontalAnimation(PrevAchievementImageRect, prevChapterImageReset, prevChapterImageReset - chapterImageOffset, landscape ? 0.4f : 1f, 0f);
+            Utils.DoSwipeHorizontalAnimation(PrevAcheivementTagRect, prevChapterImageReset, prevChapterImageReset - chapterImageOffset, landscape ? 0.4f : 1f, 0f);
 
-            Utils.DoSwipeHorizontalAnimation(NextAcheivementImageRect, nextChapterImageReset, prevChapterImageReset, 1f, 1f);
-            Utils.DoSwipeHorizontalAnimation(NextAcheivementTagRect, nextChapterImageReset, prevChapterImageReset, 1f, 1f);
+            Utils.DoSwipeHorizontalAnimation(NextAcheivementImageRect, nextChapterImageReset, prevChapterImageReset, landscape ? 0.4f : 1f, 1f);
+            Utils.DoSwipeHorizontalAnimation(NextAcheivementTagRect, nextChapterImageReset, prevChapterImageReset, landscape ? 0.4f : 1f, 1f);
         }
         private void DoProfileAnimation()
         {
@@ -259,6 +260,7 @@ namespace BizzyBeeGames
             {
                 giftObjItem.SetActive(false);
             }
+            SetProgress(false, null);
             Utils.DoZoomAnimation(NextAcheivementImageRect, 0.2f, 3f, 1f);
             Utils.DoZoomAnimation(NextAcheivementTagRect, 0.2f, 3f, 1f);
         }
@@ -301,7 +303,6 @@ namespace BizzyBeeGames
                 isRewardClaimed = true;
                 ButtonText.text = "Nice";
                 PopupManager.Instance.Show("GiftScreen", new object[] { null, true }, onGiftScreenClosed);
-                SetProgress(false, null);
             }
             else
             {

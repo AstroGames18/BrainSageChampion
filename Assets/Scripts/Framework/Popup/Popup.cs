@@ -96,12 +96,12 @@ namespace BizzyBeeGames
             }
             this.callback = callback;
             this.state = State.Showing;
-
-            // Show the popup object
-            gameObject.SetActive(true);
+            
+            if (!gameObject.activeSelf)
+                // Show the popup object
+                gameObject.SetActive(true);
 
             OnShowing(inData);
-
 
             return true;
         }

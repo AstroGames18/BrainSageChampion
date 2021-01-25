@@ -67,6 +67,15 @@ public class GameUIManager : MonoBehaviour
     public void OnFBPlayButtonPressed()
     {
         SoundManager.Instance.Play("FBPlayButtonPressed");
+        //if (PlayerPrefs.GetInt("Language_Selected", 0) > 1)
+            ShowMainScreen();
+        //else
+        //    PopupManager.Instance.Show("LanguagePopup", null, OnLanguageClose);
+    }
+
+    private void OnLanguageClose(bool cancelled, object[] outData)
+    {
+        PlayerPrefs.SetInt("Language_Selected",1);
         ShowMainScreen();
     }
 

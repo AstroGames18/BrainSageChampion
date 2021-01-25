@@ -260,23 +260,25 @@ namespace TwoOfAKindGame
                 }
             }
         }
-
+List<GameObject> DividerList ;
         void SetupProgressBar()
         {
-            List<GameObject> divider_list = new List<GameObject>();
+             DividerList = new List<GameObject>();
             List<ProbableRewards> RewardsForScore = GameConfiguration.Instance.RewardsForMiniGameScore;
             GameObject start_divider = Instantiate(Divider, DividerLayout.transform);
 
             for (int i = 0; i < RewardsForScore.Count; i++)
             {
                 GameObject divider = Instantiate(Divider, DividerLayout.transform);
-                GameObject gift = divider.transform.GetChild(0).gameObject;
+                divider.GetComponent<Image>().enabled = false;
+                GameObject gift = divider.transform.GetChild(1).gameObject;
                 gift.GetComponent<Image>().sprite = GameConfiguration.Instance.GetGiftSprite(RewardsForScore[i].giftType);
-                divider_list.Add(divider);
+                DividerList.Add(divider);
             }
 
             start_divider.GetComponent<Image>().color = new Color(0.0F, 0.0F, 0.0F, 0.0F);
             start_divider.transform.GetChild(0).gameObject.SetActive(false);
+            start_divider.transform.GetChild(1).gameObject.SetActive(false);
         }
         /// <summary>
         /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -288,6 +290,7 @@ namespace TwoOfAKindGame
             scoreCount = (scoreCount < score) ? Mathf.Lerp(scoreCount, score, Time.deltaTime * 10) :
                 Mathf.Lerp(scoreCount, score - 1, Time.deltaTime * 10);
 
+            CheckGiftAnim();
             // Update the score text
             UpdateScore();
 
@@ -329,6 +332,26 @@ namespace TwoOfAKindGame
 
                 // Update the timer
                 UpdateTime();
+            }
+        }
+
+        int currentGiftNum = -1;
+        private void CheckGiftAnim()
+        {
+            int temp = getRewardIndex(GameConfiguration.Instance.RewardsForMiniGameScore);
+
+            if(temp != currentGiftNum){
+                foreach (GameObject divider in DividerList)
+                {
+                    divider.GetComponent<Animator>().SetBool("Enable",false);
+                }
+                currentGiftNum = temp;
+                Debug.Log("currentGiftNum");
+                Debug.Log(currentGiftNum);
+                for (int i = 0; i < currentGiftNum; i++)
+                {
+                    DividerList[i].GetComponent<Animator>().SetBool("Enable",true);   
+                }
             }
         }
 
@@ -866,6 +889,8 @@ namespace TwoOfAKindGame
             UserDataManager.Instance.SetUserGiftReward(multipleGifts[0],
                     multipleGiftTypes[0], "MiniGameRewards");
             System.Action<object[]> giftScreenCallback = ShowNextGiftInList;
+
+            PopupManager.Instance.Show("Blank");
             PopupManager.Instance.Show("GiftScreen", new object[] { giftScreenCallback, false });
         }
         public void ShowNextGiftInList(object[] arg)
@@ -895,6 +920,7 @@ namespace TwoOfAKindGame
         /// </summary>
         public void MainMenu()
         {
+            PopupManager.Instance.CloseAllActivePopup();
             SetHideableObjects(false);
             LoadingManager.Instance.LoadScene(LoadingManager.StartScreen);
         }

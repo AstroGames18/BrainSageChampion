@@ -40,6 +40,9 @@ namespace BizzyBeeGames.DotConnect
         [SerializeField] private List<AnimatedText> AnimatedTextList = new List<AnimatedText>();
 
         [SerializeField] LevelTimer LevelTimerObject = null;
+        [SerializeField] ParticleSystem[] confetti;
+        [SerializeField] Animator hintAnimator;
+
         #endregion
 
         #region Classes
@@ -63,6 +66,9 @@ namespace BizzyBeeGames.DotConnect
         private bool focusOntimeInitiated = false;
         public bool isPlaying = false;
         private float timeAllotedFocusMin = 15f;
+
+        bool isIdle = true;
+        float idleSec = 0;
         #endregion
 
         #region Properties
@@ -120,6 +126,7 @@ namespace BizzyBeeGames.DotConnect
             GameEventManager.Instance.UnRegisterEventHandler(GameEventManager.EventId_ActiveLevelFailed, OnActiveLevelFailed);
         }
 
+
         private void Update()
         {
             if (!loaded)
@@ -133,6 +140,54 @@ namespace BizzyBeeGames.DotConnect
                 StartLevel(packInfo);
             }
 
+
+#if !UNITY_EDITOR
+        
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    isIdle = false;
+                    idleSec = 0;
+                    if (hintAnimator.GetBool("Focus"))
+                        hintAnimator.SetBool("Focus", false);
+                }
+                if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                {
+                    isIdle = true;
+                    idleSec = 0;
+                }
+            }
+#endif
+#if UNITY_EDITOR
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                isIdle = false;
+                idleSec = 0;
+                if (hintAnimator.GetBool("Focus"))
+                    hintAnimator.SetBool("Focus", false);
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                isIdle = true;
+                idleSec = 0;
+            }
+#endif
+
+
+            if (isIdle)
+            {
+                idleSec += Time.deltaTime;
+            }
+
+            if (idleSec >= 10)
+            {
+                if (!hintAnimator.GetBool("Focus"))
+                    hintAnimator.SetBool("Focus", true);
+            }
             if (timeAllotted != -1)
             {
                 if (timeAllotted <= 0)
@@ -160,7 +215,6 @@ namespace BizzyBeeGames.DotConnect
         /// </summary>
         private void FocusOnLevelTimer()
         {
-            Debug.Log("Focus");
             SoundManager.Instance.Play("LevelTimerLowOnTime", true);
             focusOntimeInitiated = true;
             LevelTimerObject.FocusOnTimer(15f, true);
@@ -178,13 +232,11 @@ namespace BizzyBeeGames.DotConnect
         #endregion
 
         #region Public Variables
-        public void SetPause(bool enable)
+        public void SetPause(bool enable, bool first = false)
         {
             pauseGame = enable;
-
-            Debug.Log("Pause: " + pauseGame);
-            Debug.Log("isPlaying: " + isPlaying);
-
+            if (first)
+                return;
             if (focusOntimeInitiated)
             {
                 if (pauseGame)
@@ -230,6 +282,10 @@ namespace BizzyBeeGames.DotConnect
             BundleInfo bundleInfo = GameManager.Instance.BundleInfos[bundle];
             packInfo = bundleInfo.PackInfos[pack];
             levelFailedCount = 0;
+            foreach (ParticleSystem p in confetti)
+            {
+                p.gameObject.SetActive(true);
+            }
 
             LevelData levelData = packInfo.LevelDatas[level_index];
             ActivePackInfo = packInfo;
@@ -247,10 +303,10 @@ namespace BizzyBeeGames.DotConnect
                 ActiveLevelData = challenge_level_datas[iterator];
             }
             gameGrid.SetupLevel(ActiveLevelData, levelSaveDatas[levelData.Id]);
-            SetPause(false);
+            focusOntimeInitiated = false;
+            SetPause(false, true);
             PlayGameScreenBGM();
 
-            focusOntimeInitiated = false;
             timeAllotted = ActiveLevelData.time == 0 ? -1 : ActiveLevelData.time * 60;
 
             UpdateHintAmountText();
@@ -494,6 +550,10 @@ namespace BizzyBeeGames.DotConnect
 
             // Show the level completed popup
             PopupManager.Instance.Show("LevelCompleteMessage", popupData);
+            foreach (ParticleSystem p in confetti)
+            {
+                p.Play();
+            }
             SetPause(true);
 
             NumLevelsTillAd--;

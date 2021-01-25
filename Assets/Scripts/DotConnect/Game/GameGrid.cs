@@ -28,6 +28,7 @@ namespace BizzyBeeGames.DotConnect
         [SerializeField] RectTransform movesIcon;
         int prev_lines;
         public List<AcheivementData> allAcheivementData = new List<AcheivementData>();
+
         [SerializeField] GameObject hint_amount, reset_amount, undo_amount, hint_plus, reset_plus, undo_plus, three_star_amount_text, two_star_amount_text, two_star, three_star, one_star_amount_text, one_star_sprite;
         #endregion
 
@@ -43,6 +44,7 @@ namespace BizzyBeeGames.DotConnect
             public bool isChapter;
             public string acheivement_type;
         }
+
         public class PlacedLine
         {
             public int lineIndex = 0;
@@ -356,9 +358,17 @@ namespace BizzyBeeGames.DotConnect
                     }
                     Utils.DoZoomAnimation(gridCellOne.candyT, anim_duration, scale_to, scale_from);
                     Utils.DoZoomAnimation(gridCellTwo.candyT, anim_duration, scale_to, scale_from);
+
                     gridCellOne.SetAnimatedShine(false);
                     gridCellTwo.SetAnimatedShine(false);
-                }, new object[] { hintActivationTime }));
+                    if (((int)args[1]) == placedLines.Count - 1)
+                        StartCoroutine(Utils.ExecuteAfterDelay(delay_anim + 3 * anim_duration
+                        , (args1) =>
+              {
+                  if (hintActivated)
+                      StartHintAnimation();
+              }));
+                }, new object[] { hintActivationTime, i }));
 
                 i += 1;
             }
@@ -476,11 +486,11 @@ namespace BizzyBeeGames.DotConnect
                 moveToCheck < 0)
             {
                 PopupManager.Instance.Show("OutOfMovesScreen");
-                SetNumMoves(0, true);
+                SetNumMoves(0, true, true);
             }
             else
             {
-                SetNumMoves(inventory_manager.GetInventory(InventoryManager.Key_InventoryMoves), true);
+                SetNumMoves(inventory_manager.GetInventory(InventoryManager.Key_InventoryMoves), true, true);
             }
             stars_progressive_bar();
         }
@@ -724,7 +734,7 @@ namespace BizzyBeeGames.DotConnect
 
                 undoButton.interactable = false;
 
-                SetNumMoves(currentLevelData.undoNumMoves);
+                SetNumMoves(currentLevelData.undoNumMoves, false, true);
 
                 lastChangedLineIndex = currentLevelData.undoLastChangedLineIndex;
 
@@ -798,7 +808,7 @@ namespace BizzyBeeGames.DotConnect
                 UpdateLinesText();
                 UpdateFillText();
 
-                SetNumMoves(currentLevelSaveData.numMoves + moves_done, true);
+                SetNumMoves(currentLevelSaveData.numMoves + moves_done, true, true);
                 moves_done = 0;
                 stars_progressive_bar();
             }
@@ -864,7 +874,7 @@ namespace BizzyBeeGames.DotConnect
             DrawLines();
 
             // Increment the number of moves
-            SetNumMoves(currentLevelSaveData.numMoves - 1);
+            SetNumMoves(currentLevelSaveData.numMoves - 1, false, true);
             // Check if the level is now complete
             if (CheckLevelComplete())
             {
@@ -1490,7 +1500,12 @@ namespace BizzyBeeGames.DotConnect
         {
             if (allAcheivementData.Count > 0)
                 return true;
-            if (UserDataManager.Instance.GetData("mini_game_stars") >= GameConfiguration.Instance.MiniGameMaxStars)
+
+
+            int max_stars = GameConfiguration.Instance.MiniGameMaxStars;
+            int stars = UserDataManager.Instance.GetData("mini_game_stars");
+            //if (UserDataManager.Instance.GetData("mini_game_stars") >= GameConfiguration.Instance.MiniGameMaxStars)
+            if (Mathf.FloorToInt(stars / max_stars) > 0)
                 return true;
             int current_level = UserDataManager.Instance.GetData("current_level");
             if ((current_level) % GameConfiguration.Instance.intervalToShowInviteScreen == 0)
@@ -1519,7 +1534,11 @@ namespace BizzyBeeGames.DotConnect
         }
         private void ShowSubscriptionPopup()
         {
-            if (UserDataManager.Instance.GetData("mini_game_stars") >= GameConfiguration.Instance.MiniGameMaxStars)
+
+            int max_stars = GameConfiguration.Instance.MiniGameMaxStars;
+            int stars = UserDataManager.Instance.GetData("mini_game_stars");
+            //if (UserDataManager.Instance.GetData("mini_game_stars") >= GameConfiguration.Instance.MiniGameMaxStars)
+            if (Mathf.FloorToInt(stars / max_stars) > 0)
             {
                 PopupManager.Instance.Show("MiniGamePopup", null, OnSubscriptionScreenClosed);
             }
@@ -1551,12 +1570,12 @@ namespace BizzyBeeGames.DotConnect
             int current_level = UserDataManager.Instance.GetData("current_level");
             if ((current_level) % GameConfiguration.Instance.intervalToShowInviteScreen == 0)
             {
-                //PopupManager.Instance.Show("InviteScreen", null, OnInviteScreenClosed);
+                PopupManager.Instance.Show("InviteScreen", null, OnInviteScreenClosed);
 
-                levelCompletePopup.homeButton.gameObject.SetActive(true);
-                levelCompletePopup.NextLevelButtonAnim.gameObject.GetComponent<Image>().enabled = true;
-                levelCompletePopup.NextLevelButtonAnim.gameObject.GetComponentInChildren<Text>().enabled = true;
-                levelCompletePopup.NextLevelButtonAnim.SetBool("focus", true);
+                // levelCompletePopup.homeButton.gameObject.SetActive(true);
+                // levelCompletePopup.NextLevelButtonAnim.gameObject.GetComponent<Image>().enabled = true;
+                // levelCompletePopup.NextLevelButtonAnim.gameObject.GetComponentInChildren<Text>().enabled = true;
+                // levelCompletePopup.NextLevelButtonAnim.SetBool("focus", true);
             }
             else
             {
@@ -1645,6 +1664,9 @@ namespace BizzyBeeGames.DotConnect
         {
             PlayerPrefs.SetInt("moves_done", moves_done);
 
+            Debug.Log("NoOfmovesUsed");
+            Debug.Log(PlayerPrefs.GetInt("moves_done"));
+
             // Check all the lines are connected to both end points
             for (int i = 0; i < placedLines.Count; i++)
             {
@@ -1730,8 +1752,6 @@ namespace BizzyBeeGames.DotConnect
                 three_star.GetComponent<Image>().sprite = grey_star[0];
                 two_star.GetComponent<Image>().sprite = grey_star[0];
                 one_star_sprite.GetComponent<Image>().sprite = grey_star[1];
-                Debug.Log("One star:");
-                Debug.Log((currentLevelData.one_stars - moves_done).ToString());
                 one_star_amount_text.GetComponent<Text>().text = (currentLevelData.one_stars - moves_done).ToString();
             }
             else
@@ -2204,13 +2224,26 @@ namespace BizzyBeeGames.DotConnect
         /// <summary>
         /// Sets the numMoves and updates the Text UI
         /// </summary>
-        private void SetNumMoves(int amount, bool animate = false)
+        private void SetNumMoves(int amount, bool animate = false, bool flipIcon = false)
         {
             int rotation = currentLevelSaveData.numMoves == 0 ? 0 : currentLevelSaveData.numMoves - amount;
             float nextMoveRotation = currentMoveRotation - rotation * 180f;
             float animDuration = animate ? 1.5f : 0.75f;
 
-            if (rotation != 0) { Utils.DoRotateAnimation(movesIcon, currentMoveRotation, nextMoveRotation, animDuration); }
+            if (rotation != 0)
+            {
+                if (flipIcon)
+                {
+                    movesIcon.localScale = new Vector3(-0.75f, 0.75f, 1);
+                }
+                Utils.DoRotateAnimation(movesIcon, currentMoveRotation, nextMoveRotation, animDuration);
+
+                if (flipIcon)
+                    StartCoroutine(Utils.ExecuteAfterDelay(animDuration, (args) =>
+                    {
+                        movesIcon.localScale = new Vector3(0.75f, 0.75f, 1);
+                    }));
+            }
 
             currentMoveRotation = nextMoveRotation;
             currentLevelSaveData.numMoves = amount;

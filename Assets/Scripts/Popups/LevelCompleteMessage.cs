@@ -48,7 +48,7 @@ namespace BizzyBeeGames
         }
         public void ShowingTrophy()
         {
-            SoundManager.Instance.Play("LevelCompleteTrophy");
+            SoundManager.Instance.Play("GiftClaimed");
         }
 
         public void ShowLevelCompleteOffer()

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Lean.Localization;
+using System.Collections;
 
 namespace BizzyBeeGames.DotConnect
 {
@@ -31,15 +32,16 @@ namespace BizzyBeeGames.DotConnect
         [SerializeField] RectTransform QuestProgress, LollipopProgress;
         [SerializeField] private Text lollipopText = null, questTimerText;
         [SerializeField] Text starText = null;
-        [SerializeField] private Color numMovesColor = Color.white;
 
         [SerializeField] Image[] SmallCards;
 
         [SerializeField] GameObject questProgressContainer;
         [SerializeField] Text questDelayText;
-        public int moves_done;
+        [SerializeField] List<ParticleSystem> fireworks1;
+        [SerializeField] List<ParticleSystem> fireworks2;
+        [SerializeField] List<ParticleSystem> fireworks3;
+        [SerializeField] ParticleSystem[] confetti;
         public LeanToken noOfmovesUsed;
-        public LeanToken noOfmovesColor;
         public Image questIcon;
         public Sprite StarsSpriteSmall, LollipopSpriteSmall, PairedCandySpriteSmall;
         #endregion
@@ -121,17 +123,30 @@ namespace BizzyBeeGames.DotConnect
             GetComponent<Animator>().SetBool("lollipop_appear", true);
         }
 
+        private void Start()
+        {
+
+        }
+        int movesDone = 0;
         private void OnEnable()
         {
             Utils.DoSwipeVerticalAnimation(homeButton, 300, homeButtonInitPos, 0f, 0f);
             //Utils.DoSwipeVerticalAnimation(homeButton, containerInitPos, containerInitPos + buttonOffset, 0f, 0f);
             questProgress = 0f;
             lollipopProgress = 0f;
-            noOfmovesUsed.SetValue(PlayerPrefs.GetInt("moves_done").ToString());
-            noOfmovesColor.SetValue(ColorUtility.ToHtmlStringRGB(numMovesColor));
+
+
             cancelHomeButtonAnimation = false;
             lollipopRewards = new List<QuestReward>();
             int starsRewarded = 0;
+            int movesDone = PlayerPrefs.GetInt("moves_done");
+
+            noOfmovesUsed.SetValue(movesDone);
+            noOfmovesUsed.enabled = false;
+            StartCoroutine(Utils.ExecuteAfterDelay(0f, (args) =>
+            {
+                noOfmovesUsed.enabled = true;
+            }));
             // sets all the collectable data to be used in main screen
             InventoryManager inventory_manager = InventoryManager.Instance;
             GameConfiguration config = GameConfiguration.Instance;
@@ -230,8 +245,44 @@ namespace BizzyBeeGames.DotConnect
             }
             else { LollipopProgressBarBG.sprite = lollipopIncomplete; }
         }
+
+        bool stopFirework = false;
+
         public void onNextButton()
         {
+
+            if (!stopFirework)
+            {
+                foreach (ParticleSystem item in fireworks1)
+                {
+                    if (item.isPlaying)
+                    {
+                        item.Stop();
+                    }
+                }
+                foreach (ParticleSystem item in fireworks2)
+                {
+                    if (item.isPlaying)
+                    {
+                        item.Stop();
+                    }
+                }
+                foreach (ParticleSystem item in fireworks2)
+                {
+                    if (item.isPlaying)
+                    {
+                        item.Stop();
+                    }
+                }
+                foreach (ParticleSystem p in confetti)
+                {
+                    if (p.isPlaying)
+                    {
+                        p.Stop();
+                    }
+                }
+            }
+            stopFirework = true;
 
             if (animCounter == 1)
             {
@@ -314,6 +365,10 @@ namespace BizzyBeeGames.DotConnect
         }
         private void goToNextLevel()
         {
+            foreach (ParticleSystem p in confetti)
+            {
+                p.gameObject.SetActive(false);
+            }
             mainScreen.GetComponent<MainScreen>().SetCurrentChapterBackground();
             GameManager.Instance.NextLevel();
         }
@@ -322,7 +377,7 @@ namespace BizzyBeeGames.DotConnect
             StartCoroutine(Utils.ExecuteAfterDelay(5f, (args) =>
             {
                 if (cancelHomeButtonAnimation) { return; }
-                SoundManager.Instance.Play("LevelCompleteHomeButtonAppears");
+                // SoundManager.Instance.Play("LevelCompleteHomeButtonAppears");
                 Utils.DoSwipeVerticalAnimation(homeButton, homeButtonInitPos, 300f, 1f, 0f);
                 Utils.DoSwipeHorizontalAnimation(nextLevelButton, nextLevelButton.anchoredPosition.x, 300f, 1f, 0f);
             }));
@@ -346,8 +401,8 @@ namespace BizzyBeeGames.DotConnect
         }
         public void SetLollipopImage()
         {
-            lollipopImage.color = (GameManager.Instance.Grid.lollipop) ? new Color(255f, 255f, 255f, 255f)
-                : new Color(0f, 0f, 0f, 0.35f);
+            lollipopImage.color = (GameManager.Instance.Grid.lollipop) ? new Color(1f, 1f, 1f, 1f)
+                : new Color(0.2f, 0.2f, 0.2f);
         }
         public void onLevelCompleteAppearAnimationComplete()
         {
@@ -395,13 +450,14 @@ namespace BizzyBeeGames.DotConnect
 
             QuestManager.Instance.waitForClaim = questComplete;
             QuestProgressBar.SetValue(questProgress);
-            
-            StartCoroutine(Utils.ExecuteAfterDelay(0.5f, (args) => {
-            nextLevelButtonText.text = questCompleted ? LeanLocalization.GetTranslationText("Claim")
-                : hasPopup() ? LeanLocalization.GetTranslationText("Next")
-                : (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
-                
-                 }));
+
+            StartCoroutine(Utils.ExecuteAfterDelay(0.5f, (args) =>
+            {
+                nextLevelButtonText.text = questCompleted ? LeanLocalization.GetTranslationText("Claim")
+                    : hasPopup() ? LeanLocalization.GetTranslationText("Next")
+                    : (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
+
+            }));
             float swipeUpAnimDuration = showLollipopProgress ? 0f : 1f;
             float showGiftDelay = showLollipopProgress ? 1.0f : 1.5f;
             if (showLollipopProgress) { Utils.DoZoomAnimation(LollipopProgress, 0.5f, 1f, 0f, 0f); }
@@ -462,8 +518,9 @@ namespace BizzyBeeGames.DotConnect
             if (user_quest.amount_collected >= user_quest.max_amount) { QuestProgressBarBG.sprite = questComplete; }
             else { QuestProgressBarBG.sprite = questIncomplete; }
 
-            if(UserDataManager.Instance.IsDarkModeOn()){
-                GameConfiguration.Instance.SetDarkModeOnCards(null,new Image[]{QuestProgressBarBG});
+            if (UserDataManager.Instance.IsDarkModeOn())
+            {
+                GameConfiguration.Instance.SetDarkModeOnCards(null, new Image[] { QuestProgressBarBG });
             }
             if (questCompleted) { QuestManager.Instance.SetUserGiftReward(); }
             Sprite slider_bg = null;
@@ -580,7 +637,7 @@ namespace BizzyBeeGames.DotConnect
                 {
                     nextLevelButtonText.text = (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
                 }
-                //ShowInviteScreen();
+                ShowInviteScreen();
             }
         }
         private void OnSubscriptionScreenClosed(bool cancelled, object[] data)
@@ -607,7 +664,7 @@ namespace BizzyBeeGames.DotConnect
 
             if (!hasPopup())
             {
-                nextLevelButtonText.text =(LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
+                nextLevelButtonText.text = (LeanLocalization.GetTranslationText("Lvl") + " ") + UserDataManager.Instance.GetData("current_level");
             }
         }
         /// <summary>
@@ -633,15 +690,75 @@ namespace BizzyBeeGames.DotConnect
             if (UserDataManager.Instance.GetData("mini_game_stars") >= GameConfiguration.Instance.MiniGameMaxStars && !subscriptionShowed)
                 return true;
             int current_level = UserDataManager.Instance.GetData("current_level");
-            // if ((current_level) % GameConfiguration.Instance.intervalToShowInviteScreen == 0 && !inviteShown)
-            //   return true;
+            if ((current_level) % GameConfiguration.Instance.intervalToShowInviteScreen == 0 && !inviteShown)
+                return true;
             return false;
 
         }
+
+        public void StartFirework()
+        {
+            return;
+            if (GameManager.Instance.Grid.one_star || GameManager.Instance.Grid.two_stars || GameManager.Instance.Grid.three_stars)
+            {
+                fireworks2[0].Play();
+                StartCoroutine(Fireworks(0));
+            }
+
+            if (GameManager.Instance.Grid.two_stars || GameManager.Instance.Grid.three_stars && !stopFirework)
+
+                StartCoroutine(Utils.ExecuteAfterDelay(4f, (args) =>
+                {
+                    fireworks1[0].Play();
+                    StartCoroutine(Fireworks(1));
+                    if (GameManager.Instance.Grid.three_stars && !stopFirework)
+
+                        StartCoroutine(Utils.ExecuteAfterDelay(4f, (args1) =>
+                    {
+                        fireworks3[0].Play();
+                        StartCoroutine(Fireworks(2));
+                    }));
+                }));
+        }
+
         #endregion
 
         #region Private Methods
 
+        int currentFirework1 = 1;
+        int currentFirework2 = 1;
+        int currentFirework3 = 1;
+        IEnumerator Fireworks(int i)
+        {
+
+            yield return new WaitForSeconds(12f);
+            if (!stopFirework)
+            {
+                switch (i)
+                {
+                    case 1:
+                        fireworks1[currentFirework1].Play();
+
+                        currentFirework1++;
+                        if (currentFirework1 >= fireworks1.Count)
+                            currentFirework1 = 0;
+                        break;
+                    case 0:
+                        fireworks2[currentFirework2].Play();
+                        currentFirework2++;
+                        if (currentFirework2 >= fireworks2.Count)
+                            currentFirework2 = 0;
+                        break;
+                    case 2:
+                        fireworks3[currentFirework3].Play();
+                        currentFirework3++;
+                        if (currentFirework3 >= fireworks3.Count)
+                            currentFirework3 = 0;
+                        break;
+                }
+                StartCoroutine(Fireworks(i));
+            }
+        }
         #endregion
     }
 }

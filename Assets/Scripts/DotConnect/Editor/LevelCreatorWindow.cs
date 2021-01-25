@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -365,36 +365,61 @@ namespace BizzyBeeGames.DotConnect
             
             GUIStyle white = new GUIStyle(EditorStyles.textField);
     
-    //Value Color
-    white.normal.textColor = Color.white;
+            //Value Color
+            white.normal.textColor = Color.white;
+            white.onFocused.textColor = Color.white;
+            white.onActive.textColor = Color.white;
+           
             GUIStyle green = new GUIStyle(EditorStyles.textField);
             
-    //Value Color
-    green.normal.textColor = Color.green;
+            //Value Color
+            green.normal.textColor = Color.green;
+            green.onFocused.textColor = Color.green;
+            green.onActive.textColor = Color.green;
+            green.hover.textColor = Color.green;
+            green.focused.textColor = Color.green;
             EditorGUILayout.BeginVertical(GUI.skin.box);
+            
+            Texture2D texture = new Texture2D(20,20);
+            var fillColorArray =  texture.GetPixels();
+            
+            for(var i = 0; i < fillColorArray.Length; ++i)
+            {
+                fillColorArray[i] = Color.green;
+            }
+            
+            texture.SetPixels( fillColorArray );
+            
+            texture.Apply();
+            
+            GUIStyle greenToggle = new GUIStyle(EditorStyles.toggle);
+            greenToggle.normal.textColor = Color.white;
+
+            GUIStyle whiteToggle = new GUIStyle(EditorStyles.toggle);
+            whiteToggle.normal.textColor = Color.white;
             //max_num_of_moves = Mathf.Max(1, EditorGUILayout.IntField("Number of Moves", max_num_of_moves));
             //levelHardness = Mathf.Max(0, EditorGUILayout.IntField("Level Hardness", levelHardness));
-            numMoves = Mathf.Max(1, EditorGUILayout.IntField("Number of Iterations", numMoves));
-            minLines = Mathf.Max(2, EditorGUILayout.IntField("Minimum Number of Lines", minLines));
-            maxLines = Mathf.Max(0, EditorGUILayout.IntField("Maximum Number of Lines", maxLines));
-            three_star = Mathf.Max(1, EditorGUILayout.IntField("3 stars", three_star));
-            two_star = Mathf.Max(1, EditorGUILayout.IntField("2 stars", two_star));
+            numMoves = Mathf.Max(1, EditorGUILayout.IntField("Number of Iterations", numMoves,numMoves != 1000 ? green : white));
+            minLines = Mathf.Max(2, EditorGUILayout.IntField("Minimum Number of Lines", minLines , minLines != 4 ? green : white));
+            maxLines = Mathf.Max(0, EditorGUILayout.IntField("Maximum Number of Lines", maxLines, maxLines !=  6 ? green : white));
+            three_star = Mathf.Max(1, EditorGUILayout.IntField("3 stars", three_star, three_star != 1 ? green : white));
+            two_star = Mathf.Max(1, EditorGUILayout.IntField("2 stars", two_star,two_star != 3 ? green:white));
             one_star = Mathf.Max(1, EditorGUILayout.IntField("1 star", one_star,one_star != 5 ? green: white));// 
-            time = Mathf.Max(0, EditorGUILayout.FloatField("Time", time));
-            is_challenge_library = EditorGUILayout.Toggle("Is a challenge level", is_challenge_library);
-            batchGeneration = EditorGUILayout.Toggle("Batch Generation", batchGeneration);
+            time = Mathf.Max(0, EditorGUILayout.FloatField("Time", time, time != 0 ? green : white));
+            is_challenge_library = EditorGUILayout.Toggle("Is a challenge level", is_challenge_library, is_challenge_library ? greenToggle:whiteToggle);
+            batchGeneration = EditorGUILayout.Toggle("Batch Generation", batchGeneration,batchGeneration ? greenToggle:whiteToggle);
 
 
             levelHardness = Mathf.Min(100, levelHardness);
             if (batchGeneration)
             {
                 seed = 0;
-                numLevels = Mathf.Max(0, EditorGUILayout.IntField("Number of Levels", numLevels));
+                numLevels = Mathf.Max(0, EditorGUILayout.IntField("Number of Levels", numLevels, numLevels!= 1 ? green:white));
             }
 
             if (!batchGeneration)
             {
-                seed = Mathf.Max(0, EditorGUILayout.IntField("Seed", seed));
+                seed = Mathf.Max(0, EditorGUILayout.IntField("Seed", seed,seed != 0  ? green:white));
             }
 
             //enableLogging = EditorGUILayout.Toggle("Enable Logging", enableLogging);

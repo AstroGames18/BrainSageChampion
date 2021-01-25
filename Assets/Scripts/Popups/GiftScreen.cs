@@ -18,6 +18,7 @@ namespace BizzyBeeGames
         [SerializeField] TextMeshProUGUI RewardText;
         [SerializeField] GameObject giftCard = null, DisplayContainer = null, BackGround = null, TrophyHUD = null, InventoryHUD = null, TapInfo = null, TrophyObject = null, InventoryObject = null;
         [SerializeField] List<QuestReward> giftRewards = new List<QuestReward>();
+        [SerializeField] List<QuestReward> removedRewards = new List<QuestReward>();
         [SerializeField] Sprite[] Tops, Bases, Masks;
         [SerializeField] Animator giftAnimator;
         [SerializeField] bool customTargetRect;
@@ -61,6 +62,8 @@ namespace BizzyBeeGames
             UserDataManager.Instance.SetUserGift();
             AnimatedShine.SetActive(true);
 
+            CleanTrophyReward();
+
             giftOpenedCounter = 0;
             cardShowing = false;
             giftBoxOpened = false;
@@ -88,6 +91,21 @@ namespace BizzyBeeGames
 
             BackGround.SetActive(true);
         }
+
+        private void CleanTrophyReward()
+        {
+            foreach (QuestReward reward in giftRewards)
+            {
+                if (reward.type == QuestReward.reward_types.TROPHIES)
+                {
+                    removedRewards.Add(reward);
+                    giftRewards.Remove(reward);
+                    CleanTrophyReward();
+                    break;
+                }
+            }
+        }
+
         private void OnDisable()
         {
             // start the current screens bgm when gift screen is closed
@@ -164,14 +182,16 @@ namespace BizzyBeeGames
             }));
         }
 
-        public void SetCardReadyForExit(){
+        public void SetCardReadyForExit()
+        {
             cardReadyForExit = true;
         }
 
-        public void CheckCardEnd(){
-             if (giftOpenedCounter < giftRewards.Count)
-             return;
-             else ShowNextGift();
+        public void CheckCardEnd()
+        {
+            if (giftOpenedCounter < giftRewards.Count)
+                return;
+            else ShowNextGift();
         }
         public void onCardAnimComplete()
         {
@@ -192,9 +212,10 @@ namespace BizzyBeeGames
 
         public void ShowNextGift()
         {
-            if(cardReadyForExit){
-            giftAnimator.SetTrigger("CardExit");
-            cardReadyForExit = false;
+            if (cardReadyForExit)
+            {
+                giftAnimator.SetTrigger("CardExit");
+                cardReadyForExit = false;
             }
             // if card is being shown ignore input
             if (cardShowing) { return; }
@@ -404,6 +425,8 @@ namespace BizzyBeeGames
             if (movesToReward > 0)
                 InventoryManager.Instance.UpdateInventory(InventoryManager.Key_InventoryMoves, movesToReward);
             InventoryManager.Instance.UpdateAllQuestRewards(giftRewards);
+            if (removedRewards.Count > 0)
+                InventoryManager.Instance.UpdateAllQuestRewards(removedRewards);
 
             // giftAnimator.SetBool("BottomOpen", false);
 

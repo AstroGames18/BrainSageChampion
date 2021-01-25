@@ -30,9 +30,9 @@ public class MiniGameChecker : MonoBehaviour
         if (StarProgressBar)
             StarProgressBar.SetValue(stars / (float)max_stars);
         CardAnimatedShine.SetActive(stars >= max_stars);
-        if (UserDataManager.Instance.IsDarkModeOn()) { Background.sprite = DarkBackground; }
-        else if (stars >= max_stars) { Background.sprite = CompleteProgressBG; }
+        if (stars >= max_stars) { Background.sprite = CompleteProgressBG; }
         else { Background.sprite = IncompleteProgressBG; }
+        if (UserDataManager.Instance.IsDarkModeOn()) { Background.sprite = DarkBackground; }
         display_collected_stars.GetComponent<Text>().text = stars.ToString() + "/" + max_stars.ToString();
     }
 }
