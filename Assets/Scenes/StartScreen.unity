@@ -13477,12 +13477,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf313c961e6ffc9488aa976d2d7d778a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   NoOfChallenges: 150
   FirstTimeFreeMoves: 500
   FirstTimeFreeResets: 500
   FirstTimeFreeHints: 500
   FirstTimeFreeUndos: 500
   FirstTimeFreeCoins: 9000
+=======
+  NoOfChallenges: 80
+  FirstTimeFreeMoves: 80
+  FirstTimeFreeResets: 5
+  FirstTimeFreeHints: 10
+  FirstTimeFreeUndos: 5
+  FirstTimeFreeCoins: 1400
+>>>>>>> Stashed changes
   LevelFailMovesAdder: 10
   MiniOfferCoins: 500
   MiniOfferMoves: 25
@@ -13493,7 +13502,7 @@ MonoBehaviour:
   FailTrophyChallenge: 0
   ProfileTrophies:
   - min_value: 0
-    max_value: 10
+    max_value: 20
     medal_number: 5
     medal_tag: Bronze 5
     reward:
@@ -13513,8 +13522,8 @@ MonoBehaviour:
       max_reward: 1
       giftType: 1
     badge: 0
-  - min_value: 10
-    max_value: 30
+  - min_value: 20
+    max_value: 60
     medal_number: 4
     medal_tag: Bronze 4
     reward:
@@ -13528,8 +13537,8 @@ MonoBehaviour:
       max_reward: 2
       giftType: 1
     badge: 0
-  - min_value: 30
-    max_value: 60
+  - min_value: 60
+    max_value: 120
     medal_number: 3
     medal_tag: Bronze 3
     reward:
@@ -13543,8 +13552,8 @@ MonoBehaviour:
       max_reward: 2
       giftType: 1
     badge: 0
-  - min_value: 60
-    max_value: 100
+  - min_value: 120
+    max_value: 150
     medal_number: 2
     medal_tag: Bronze 2
     reward:
@@ -13555,8 +13564,8 @@ MonoBehaviour:
       max_reward: 1
       giftType: 1
     badge: 0
-  - min_value: 100
-    max_value: 150
+  - min_value: 150
+    max_value: 175
     medal_number: 1
     medal_tag: Bronze 1
     reward:
@@ -13567,7 +13576,7 @@ MonoBehaviour:
       max_reward: 1
       giftType: 1
     badge: 0
-  - min_value: 150
+  - min_value: 175
     max_value: 220
     medal_number: 6
     medal_tag: Silver 6
@@ -14844,7 +14853,7 @@ MonoBehaviour:
       time: 0
       price: 0
   QuestData: {fileID: 4900000, guid: ae9240fd87e3dd241a2c1f72e9798151, type: 3}
-  MovesLowerThreshold: 1
+  MovesLowerThreshold: 30
   DailyRewardConfig:
   - reward:
     - amount: 1
@@ -15082,8 +15091,8 @@ MonoBehaviour:
   - Amazing
   - Amazing
   - Amazing
-  intervalToShowInviteScreen: 25
-  LevelMessageOfferContinousLevel: 20
+  intervalToShowInviteScreen: 20
+  LevelMessageOfferContinousLevel: 7
   LevelMessageOffer:
   - OfferOne:
       amount: 15
@@ -15106,9 +15115,15 @@ MonoBehaviour:
       amount: 30
       type: 3
     PriceOfOffer: 2.99
+<<<<<<< Updated upstream
   questTimerVisibilityMininmumMinutes: 60
   MiniGameMaxStars: 10
   MaxScoreInMiniGame: 10000
+=======
+  questTimerVisibilityMininmumMinutes: 30
+  MiniGameMaxStars: 30
+  MaxScoreInMiniGame: 13000
+>>>>>>> Stashed changes
   MiniGameTimeInSeconds: 30
   RewardsForMiniGameScore:
   - list:
@@ -15148,12 +15163,12 @@ MonoBehaviour:
     max_reward: 1
     giftType: 3
   ScoreWonForCorrectMatch: 100
-  ScoreLostForWrongMatch: 0
+  ScoreLostForWrongMatch: 20
   ChapterGapRateUsPopup: 2
-  MovesRechargeMaximumFreeMoves: 50
-  MovesRechargedPerTimeGap: 5
-  MovesRechargeTimeGapInMinutes: 10
-  InstantRechargeCostPerMove: 30
+  MovesRechargeMaximumFreeMoves: 80
+  MovesRechargedPerTimeGap: 8
+  MovesRechargeTimeGapInMinutes: 14
+  InstantRechargeCostPerMove: 15
   LevelFailPrice: 2c010000f4010000e8030000
   PinkGift: {fileID: 21300000, guid: 3e05f2addbceccc47991a7f879a93d1d, type: 3}
   BlueGift: {fileID: 21300000, guid: 0c4aae9394fe040e286a6de66fbd13b7, type: 3}
@@ -76978,6 +76993,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 75205087, guid: b6bb344f39a49f749af0b69038be38f8, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< Updated upstream
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1148891782, guid: b6bb344f39a49f749af0b69038be38f8, type: 3}
@@ -76992,6 +77008,9 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+=======
+      value: -0.5
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 152194225356867221, guid: b6bb344f39a49f749af0b69038be38f8,
         type: 3}
