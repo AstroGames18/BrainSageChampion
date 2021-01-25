@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "776391292044",
+    "project_id": "brain-sage-champion-23939780",
+    "storage_bucket": "brain-sage-champion-23939780.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776391292044:android:cfe9224fa71b3dfb3677a9",
+        "android_client_info": {
+          "package_name": "brain.puzzle.training"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776391292044-75i3de6esmdp8jfh0aa797fdctph0fl0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "brain.puzzle.training",
+            "certificate_hash": "4578451b67d8b4711e0ce5338032c43bdb975aa4"
+          }
+        },
+        {
+          "client_id": "776391292044-djha76v3emc6d9n8jaem9up314r0hc64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8GwD2JTZ7wovaTQmH7EVzZWegEr7gF7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776391292044-djha76v3emc6d9n8jaem9up314r0hc64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
