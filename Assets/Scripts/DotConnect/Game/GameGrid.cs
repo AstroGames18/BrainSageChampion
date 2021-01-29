@@ -619,6 +619,7 @@ namespace BizzyBeeGames.DotConnect
             }
             else if (activelevel.is_challenge_library && currentLevelSaveData.numMoves <= getMaxMovesForChallenge() && !CheckLevelComplete())
             {
+                Debug.LogError("Failed");
                 // if the number of moves reaches zero fail the level and show the level failed popup
                 GameEventManager.Instance.SendEvent(GameEventManager.EventId_ActiveLevelFailed, false, true);
             }
@@ -1664,9 +1665,6 @@ namespace BizzyBeeGames.DotConnect
         {
             PlayerPrefs.SetInt("moves_done", moves_done);
 
-            Debug.Log("NoOfmovesUsed");
-            Debug.Log(PlayerPrefs.GetInt("moves_done"));
-
             // Check all the lines are connected to both end points
             for (int i = 0; i < placedLines.Count; i++)
             {
@@ -1987,6 +1985,7 @@ namespace BizzyBeeGames.DotConnect
         {
             // Get the connection between this end dot and the line segment
             ConnectedDirection connectedDirection = ConnectedDirection.None;
+            Debug.LogError("endCell.lineIndex: " + endCell.lineIndex);
             Sprite candySprite = end_point_candies[endCell.lineIndex];
             if (endCell.isEndConnected && lineSegmentCell != null && !lineSegmentCell.isCut)
             {

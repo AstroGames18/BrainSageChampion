@@ -20,14 +20,10 @@ public class ListSwitch : MonoBehaviour
     int ListPos = 0;
     void Start()
     {
+        ListPos = 0;
         ShowList(ListPos);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void LeftButtonClick()
     {
 

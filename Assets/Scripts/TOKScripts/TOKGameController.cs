@@ -79,7 +79,7 @@ namespace TwoOfAKindGame
         [Tooltip("The maximum number of pairs allowed in the game")]
         public int pairsMaximum = 8;
 
-        
+
         [SerializeField] Image CloseButton;
         [SerializeField] Image TitleHeader;
         [SerializeField] Image[] SmallerCardsBase;
@@ -202,7 +202,8 @@ namespace TwoOfAKindGame
             }
 
             //Assign the sound source for easier access
-            if (GameObject.FindGameObjectWithTag(soundSourceTag)) soundSource = GameObject.FindGameObjectWithTag(soundSourceTag);
+            if (PlayerPrefs.GetInt("toggle_sound") == 1)
+                if (GameObject.FindGameObjectWithTag(soundSourceTag)) soundSource = GameObject.FindGameObjectWithTag(soundSourceTag);
 
             // Shuffle all the pairs in the game. If we have a TextText array, shuffle it instead.
             if (pairsImage.Length > 0)
@@ -240,10 +241,11 @@ namespace TwoOfAKindGame
 
         private void SetBackgroundImage()
         {
-            if(UserDataManager.Instance.IsDarkModeOn()){
-                
-                    BackgroundImage.sprite = darkBackground;
-                    
+            if (UserDataManager.Instance.IsDarkModeOn())
+            {
+
+                BackgroundImage.sprite = darkBackground;
+
                 GameConfiguration.Instance.SetDarkModeOnPopups(CloseButton, TitleHeader, null);
                 GameConfiguration.Instance.SetDarkModeOnCards(null, SmallerCardsBase);
                 return;
@@ -260,10 +262,10 @@ namespace TwoOfAKindGame
                 }
             }
         }
-List<GameObject> DividerList ;
+        List<GameObject> DividerList;
         void SetupProgressBar()
         {
-             DividerList = new List<GameObject>();
+            DividerList = new List<GameObject>();
             List<ProbableRewards> RewardsForScore = GameConfiguration.Instance.RewardsForMiniGameScore;
             GameObject start_divider = Instantiate(Divider, DividerLayout.transform);
 
@@ -340,17 +342,18 @@ List<GameObject> DividerList ;
         {
             int temp = getRewardIndex(GameConfiguration.Instance.RewardsForMiniGameScore);
 
-            if(temp != currentGiftNum){
+            if (temp != currentGiftNum)
+            {
                 foreach (GameObject divider in DividerList)
                 {
-                    divider.GetComponent<Animator>().SetBool("Enable",false);
+                    divider.GetComponent<Animator>().SetBool("Enable", false);
                 }
                 currentGiftNum = temp;
                 Debug.Log("currentGiftNum");
                 Debug.Log(currentGiftNum);
                 for (int i = 0; i < currentGiftNum; i++)
                 {
-                    DividerList[i].GetComponent<Animator>().SetBool("Enable",true);   
+                    DividerList[i].GetComponent<Animator>().SetBool("Enable", true);
                 }
             }
         }

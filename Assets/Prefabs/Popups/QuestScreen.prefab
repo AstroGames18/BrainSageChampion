@@ -3366,7 +3366,7 @@ MonoBehaviour:
     type: 3}
   CompleteProgressBG: {fileID: 21300000, guid: d5d473bd992bbee43ba5b19061144d31, type: 3}
   LollipopSlider: {fileID: 21300000, guid: c29906c5db98de143bcf351a1f78d6e3, type: 3}
-  StarSlider: {fileID: 21300000, guid: 077968b14b0e87944a73352b0e3b046c, type: 3}
+  StarSlider: {fileID: 21300000, guid: 0014e6a0af9ab704cbbf1d11843e8c12, type: 3}
   PairedCandySlider: {fileID: 21300000, guid: 5de3cbea4865d9c40a5332c3bdcf29b3, type: 3}
   QuestOfferObject: {fileID: 5465647946462413495}
   MoveQuestOfferText: {fileID: 5465647945248003051}

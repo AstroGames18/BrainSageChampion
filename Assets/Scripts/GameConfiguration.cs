@@ -224,6 +224,7 @@ namespace BizzyBeeGames
         public bool IsGameCompleted()
         {
             return (UserDataManager.Instance.GetData("current_level") > NoOfChallenges);
+            //return (UserDataManager.Instance.GetData("current_level") > LevelManager.Instance.bundleInfos[0].PackInfos[0].levelFiles.Count);
         }
 
         public void SetDarkModeOnPopups(Image CloseButtonImg, Image TitleHeaderImg, Image BackgroundCard)

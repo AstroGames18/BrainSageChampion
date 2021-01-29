@@ -33,6 +33,9 @@ namespace BizzyBeeGames
         private float nextChapterImageReset = 1000f;
         private float chapterImageOffset = 2500f;
         private bool isChapter = false;
+
+        int current_chapter_level = 0;
+
         private string keyInventory = "";
         private bool isRewardClaimed = false;
         private List<QuestReward> allRewards = null;
@@ -205,14 +208,15 @@ namespace BizzyBeeGames
             starsMainContainer.SetActive(false);
             lollipopMainContainer.SetActive(false);
             AcheivementText.text = "Chapter Complete";
-            int curr_level = UserDataManager.Instance.GetData("current_level");
+            int current_level = UserDataManager.Instance.GetData("current_level");
             PrevMedalNumber.gameObject.SetActive(false);
             NextMedalNumber.gameObject.SetActive(false);
             SoundManager.Instance.Play("ChapterAcheivementAppear");
 
-            object[] chapTiers = GetChapterTiers(curr_level);
+            object[] chapTiers = GetChapterTiers(current_level);
             ChapterTier nextTier = (ChapterTier)chapTiers[0];
             ChapterTier prevTier = (ChapterTier)chapTiers[1];
+            current_chapter_level = (int)chapTiers[2];
 
             NextAcheivementImage.sprite = BookIcon;
             NextAcheivementTag.text = nextTier.banner_message;
@@ -272,7 +276,7 @@ namespace BizzyBeeGames
                 data = GameConfiguration.Instance.ChapterTiers[i];
                 if (curr_level >= data.min_level && curr_level < data.max_level)
                 {
-                    return new object[] { data, GameConfiguration.Instance.ChapterTiers[i - 1] };
+                    return new object[] { data, GameConfiguration.Instance.ChapterTiers[i - 1], i };
                 }
             }
             return null;
@@ -295,6 +299,7 @@ namespace BizzyBeeGames
 
         public void OnClaimButtonPressed()
         {
+
             if (!isRewardClaimed)
             {
                 UserDataManager.Instance.SetUserGiftReward(allRewards,
@@ -306,6 +311,8 @@ namespace BizzyBeeGames
             }
             else
             {
+                if (isChapter)
+                    SocialManager.Instance.IncrementAchievement(PlayServiceIds.achievement_chapter_achievement, current_chapter_level);
                 SoundManager.Instance.Play("AcheivementNiceButton");
                 Hide(true);
             }

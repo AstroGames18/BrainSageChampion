@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Toast
 {
-    public static void Show(string message)
+    public static void Show(string message, Text text = null)
     {
+
+        if (text)
+            text.text += "\n" + message;
 
 #if UNITY_EDITOR
         Debug.Log(message);

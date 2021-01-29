@@ -140,7 +140,20 @@ public class GameUIManager : MonoBehaviour
 
     public void ShowPopup(string id)
     {
-        PopupManager.Instance.Show(id);
+        PopupManager.Instance.Show(id,new object[]{ GetLeaderboardType(id)});
+    }
+
+    private LeaderboardType GetLeaderboardType(string id)
+    {
+        switch(id){
+            case "StarLeaderboard":
+            return LeaderboardType.STAR;
+            case "TrophyLeaderboard":
+            return LeaderboardType.TROPHY;
+            case "LollipopLeaderboard":
+            return LeaderboardType.LOLLIPOP;
+        }
+        return LeaderboardType.STAR;
     }
 
     public void CloseHelpPopupBtn(string id)

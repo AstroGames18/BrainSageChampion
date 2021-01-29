@@ -92,6 +92,8 @@ namespace BizzyBeeGames.DotConnect
         {
             base.Awake();
 
+            //bundleInfos = LevelManager.Instance.bundleInfos;
+
             GameEventManager.Instance.RegisterEventHandler(GameEventManager.EventId_ActiveLevelCompleted, OnActiveLevelComplete);
             GameEventManager.Instance.RegisterEventHandler(GameEventManager.EventId_ActiveLevelFailed, OnActiveLevelFailed);
 
@@ -320,8 +322,10 @@ namespace BizzyBeeGames.DotConnect
 
             // if the level has hardness defined in the level creator editor show the
             // LevelIntroductionPopup. Else start the game play animation.
-            if (ActiveLevelData.level_hardness != 0) { PopupManager.Instance.Show("LevelIntroduction"); }
-            else { StartGamePlayAnimation(); }
+            // if (ActiveLevelData.level_hardness != 0) { PopupManager.Instance.Show("LevelIntroduction"); }
+            // else { 
+            StartGamePlayAnimation();
+            //  }
         }
 
         public void StartGamePlayAnimation()

@@ -3480,6 +3480,8 @@ MonoBehaviour:
     - {fileID: 1205424327}
     - {fileID: 904289901}
     textMeshes: []
+  removeOutline: []
+  addBlackOverlay: []
 --- !u!4 &1884724576
 Transform:
   m_ObjectHideFlags: 0

@@ -222,7 +222,8 @@ namespace BizzyBeeGames
             outOfMoves = false;
             if (inData != null && inData.Length > 0)
             {
-                outOfMoves = (bool)inData[0];
+                if (inData[0] is bool)
+                    outOfMoves = (bool)inData[0];
             }
         }
         public void ClosePopup()

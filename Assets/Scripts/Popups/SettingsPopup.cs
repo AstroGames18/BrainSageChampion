@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ricimi;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ namespace BizzyBeeGames
         [SerializeField] Image MusicImage, SoundImage, SoundIcon;
         [SerializeField] Color disableToggle, enableToggle;
         [SerializeField] RadioButton DarkModeOn, DarkModeOff;
+        [SerializeField] AnimatedButton login;
 
         private bool darkModeEnabled = false;
         private void OnEnable()
@@ -20,7 +22,43 @@ namespace BizzyBeeGames
             RefreshToggles();
             darkModeEnabled = UserDataManager.Instance.IsDarkModeOn();
             SetRadioButtons(darkModeEnabled);
+
+            CheckLogin();
         }
+
+        private void SignIn()
+        {
+            SocialManager.Instance.SignInPlayer(
+                result =>
+                {
+                    if (result)
+                        CheckLogin();
+                }
+            );
+        }
+
+        private void SignOut()
+        {
+            SocialManager.Instance.SignOut();
+            CheckLogin();
+        }
+
+        private void CheckLogin()
+        {
+            if (SocialManager.Instance.isLoggedIn)
+            {
+                login.GetComponentInChildren<Text>().text = "Logout";
+                login.onClick.RemoveAllListeners();
+                login.onClick.AddListener(SignOut);
+            }
+            else
+            {
+                login.GetComponentInChildren<Text>().text = "Login";
+                login.onClick.RemoveAllListeners();
+                login.onClick.AddListener(SignIn);
+            }
+        }
+
         private void ResetDarkMode()
         {
             darkModeEnabled = UserDataManager.Instance.IsDarkModeOn();

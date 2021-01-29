@@ -123,10 +123,6 @@ namespace BizzyBeeGames.DotConnect
             GetComponent<Animator>().SetBool("lollipop_appear", true);
         }
 
-        private void Start()
-        {
-
-        }
         int movesDone = 0;
         private void OnEnable()
         {
@@ -296,7 +292,8 @@ namespace BizzyBeeGames.DotConnect
                 {
                     ShowLevelCompleteDissappearAnimation(() =>
                     {
-                        LoadingManager.Instance.LoadScene(LoadingManager.StartScreen);
+                        PopupManager.Instance.Show("GameCompleted");
+                       // LoadingManager.Instance.LoadScene(LoadingManager.StartScreen);
                     });
                 }
                 else if (questCompleted)
@@ -402,7 +399,7 @@ namespace BizzyBeeGames.DotConnect
         public void SetLollipopImage()
         {
             lollipopImage.color = (GameManager.Instance.Grid.lollipop) ? new Color(1f, 1f, 1f, 1f)
-                : new Color(0.2f, 0.2f, 0.2f);
+                : new Color(0.05f, 0.05f, 0.05f);
         }
         public void onLevelCompleteAppearAnimationComplete()
         {
